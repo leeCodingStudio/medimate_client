@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="stylesheet" href="/css/admin/adminUser.css">
+    <title>회원관리</title>
+</head>
+<body>
+    <header>
+        <i class="fa-solid fa-bars"></i>
+        관리자 홈
+    </header>
+
+    <nav>
+        <div class="logo"><h1>MEDIMATE</h1></div>
+        <ul>
+            <li class="nav-user active"><i class="fa-solid fa-users"></i> 회원 관리</li>
+            <li class="nav-drugstore"><i class="fa-solid fa-house-medical"></i> 약국 관리</li>
+            <li class="nav-medicine"><i class="fa-solid fa-prescription-bottle-medical"></i> 약품 관리</li>
+            <li class="nav-announcement"><i class="fa-solid fa-scroll"></i> 공지 사항</li>
+            <li class="nav-QnA"><i class="fa-solid fa-comments"></i> 문의 사항</li>
+        </ul>
+    </nav>
+
+    <main>
+        <article class="title">
+            <h2>회원관리</h2>
+            <form action="#" method="post" class="search">
+                <input type="text" name="userId" placeholder="이름으로 검색">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </article>
+        <article class="list">
+            <div class="list-title">
+                <ul>
+                    <li class="row-1">회원번호</li>
+                    <li class="row-1">아이디</li>
+                    <li class="row-1">이름</li>
+                    <li class="row-2">이메일</li>
+                    <li class="row-1">비고</li>
+                </ul>
+            </div>
+            <div class="list-info">
+                <ul>
+                    <li class="row-1">20161128</li>
+                    <li class="row-1">a12345</li>
+                    <li class="row-1">이현준</li>
+                    <li class="row-2">lhj@gmail.com</li>
+                    <li class="row-1"><button class="info-btn">상세보기</button></li>
+                </ul>
+            </div>
+            <div class="list-info">
+                <ul>
+                    <li class="row-1">20161128</li>
+                    <li class="row-1">a12345</li>
+                    <li class="row-1">이현준</li>
+                    <li class="row-2">lhj@gmail.com</li>
+                    <li class="row-1"><button class="info-btn">상세보기</button></li>
+                </ul>
+            </div>
+            <% userList.forEach(user => {
+            %>
+            <div class="list-info">
+                <ul>
+                    <li class="row-1"><%= user.U_NUM %></li>
+                    <li class="row-1"><%= user.U_ID %></li>
+                    <li class="row-1"><%= user.U_NAME %></li>
+                    <li class="row-2"><%= user.U_EMAIL %></li>
+                    <li class="row-1"><button class="info-btn">상세보기</button></li>
+                </ul>
+            </div>
+            <% }) %>
+        </article>
+    </main>
+    <div class="modal" id="modal-info">
+        <div class="modal-box">
+            <button class="modal-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <form action="#" method="post">
+                <div class="modal-title">
+                    <h3>상세 회원 정보</h3>
+                </div>
+                <div class="modal-info">
+                    <div>회원번호</div>
+                    <input type="text" value="20161128">
+                </div>
+                <div class="modal-info">
+                    <div>아이디</div>
+                    <input type="text" value="ab12345">
+                </div>
+                <div class="modal-info">
+                    <div>이름</div>
+                    <input type="text" value="이현준">
+                </div>
+                <div class="modal-info">
+                    <div>이메일</div>
+                    <input type="text" value="lhj@gmail.com">
+                </div>
+                <div class="modal-info">
+                    <div>전화번호</div>
+                    <input type="text" value="010-1111-1111">
+                </div>
+                <div class="submit-btn">
+                    <button type="submit" class="black-btn">수정</button>
+                    <button type="button" class="red-btn">삭제</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
+    <script src="admin.js"></script>
+    <script src="modalInfo.js"></script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-# medimate_client
