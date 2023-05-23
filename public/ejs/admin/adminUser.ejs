@@ -61,18 +61,22 @@
                     <li class="row-1"><button class="info-btn">상세보기</button></li>
                 </ul>
             </div>
-            <% userList.forEach(user => {
+
+
+            <% list.forEach(data => {
             %>
             <div class="list-info">
                 <ul>
-                    <li class="row-1"><%= user.U_NUM %></li>
-                    <li class="row-1"><%= user.U_ID %></li>
-                    <li class="row-1"><%= user.U_NAME %></li>
-                    <li class="row-2"><%= user.U_EMAIL %></li>
+                    <li class="row-1"><%= data.U_NUM %></li>
+                    <li class="row-1"><%= data.U_ID %></li>
+                    <li class="row-1"><%= data.U_NAME %></li>
+                    <li class="row-2"><%= data.U_EMAIL %></li>
                     <li class="row-1"><button class="info-btn">상세보기</button></li>
                 </ul>
             </div>
             <% }) %>
+
+
         </article>
     </main>
     <div class="modal" id="modal-info">
@@ -113,7 +117,7 @@
     </div>
 
     <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
-    <script src="admin.js"></script>
-    <script src="modalInfo.js"></script>
+    <script src="/js/admin/admin.js"></script>
+    <script src="/js/main/modalInfo.js"></script>
 </body>
 </html>

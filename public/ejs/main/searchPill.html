@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약 세부검색</title>
+    <link rel="stylesheet" href="./searchPill.css">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-logo">
+            <h1><a class="logo-a" style="text-decoration: none;" href="index.html">MEDIMATE</a></h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li>약국</li>
+                <li>약</li>
+                <li>캘린더</li>
+                <li>공지사항</li>
+            </ul>
+        </nav>
+        <div class="header-state">
+            <ul>
+                <li class="header-login">로그인</li>
+                <li class="header-join">회원가입</li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="search_drug">
+        <select name="all">
+            <option value="일반 의약품">일반 의약품</option>
+            <option value="전문 의약품">전문 의약품</option>
+        </select>
+        <input class="oo" type="text">
+        <button class="b">검색</button>
+        <button class="a">상세검색</button>
+    </div>
+    <div class="box">
+        <div class="ss">
+            <!-- 일련번호 업소명 표시 색상 제형 모양 -->
+            <div class="in">
+                <div class="ibname">일련번호</div>
+                <div class="ibname">업소명</div>
+                <div class="ibname">표시</div>
+            </div>
+            <div class="colname">색상</div>
+            <div class="pname">제형</div>
+            <div class="sname">모양</div>
+        </div>
+        <div class="sel">
+            <!-- 인풋박스 -->
+            <div class="ib">
+                <input type="text" name="num" placeholder="일련번호"><br>
+                <input type="text" name="s-name" placeholder="업소명"><br>
+                <input type="text" name="mark"><input type="checkbox" value="line">분할선<br>
+            </div>
+            <!-- 색상 체크박스 -->
+            <div class="col">
+                <input type="checkbox" name="color" value="white">하양
+                <input type="checkbox" name="color" value="yellow">노랑
+                <input type="checkbox" name="color" value="orange">주황
+                <input type="checkbox" name="color" value="pink">분홍
+                <input type="checkbox" name="color" value="red">빨강
+                <input type="checkbox" name="color" value="brown">갈색
+                <input type="checkbox" name="color" value="yellowgreen">연두<br>
+                <input type="checkbox" name="color" value="green">초록
+                <input type="checkbox" name="color" value="bluegreen">청록
+                <input type="checkbox" name="color" value="blue">파랑
+                <input type="checkbox" name="color" value="navyblue">남색
+                <input type="checkbox" name="color" value="purple">보라
+                <input type="checkbox" name="color" value="black">검정
+                <input type="checkbox" name="color" value="transparent">투명
+            </div>
+            <!-- 제형 -->
+            <div class="ptype">
+                <input type="checkbox" name="type" value="tablet">정제
+                <input type="checkbox" name="type" value="hardCapsule">경질캡슐
+                <input type="checkbox" name="type" value="softCapsule">연질캡슐
+                <input type="checkbox" name="type" value="else">기타
+            </div>
+            <!-- 모양: 원형 타원형 장방형 반원형 기타 -->
+            <div class="shape">
+                <input type="checkbox" name="shape" value="cir">원형
+                <input type="checkbox" name="shape" value="ov">타원형
+                <input type="checkbox" name="shape" value="long">장방형
+                <input type="checkbox" name="shape" value="semi">반원형
+                <input type="checkbox" name="shape" value="else">기타
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

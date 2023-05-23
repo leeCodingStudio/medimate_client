@@ -1,8 +1,11 @@
-// import express from 'express';
-// import loginRouter from './login.js';
+import express from 'express';
+import loginRouter from './login.js';
+import indexRouter from './index.js';
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.use('/login', loginRouter);
 
-// export default router;
+router.use('/index',indexRouter)
+router.use('/login', loginRouter);
+
+export default router;

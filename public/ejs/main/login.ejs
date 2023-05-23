@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메디메이트 로그인</title>
+    <link rel="stylesheet" href="/css/main/login.css">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-logo">
+            <h1>MEDIMATE</h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li class="header-drug">약국</li>
+                <li class="header-medicine">약</li>
+                <li class="header-calendar">캘린더</li>
+                <li class="header-announcement">공지사항</li>
+            </ul>
+        </nav>
+        <div class="header-state">
+            <ul>
+                <li class="header-login">로그인</li>
+                <li class="header-join">회원가입</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 로그인 박스 -->
+    <div class="box">
+        <div class="login">
+            <div class="login-n">로그인</div>
+
+            <form action="/main/login" method="post">
+                아이디: <input type="text" name="U_ID" id="U_ID" placeholder="아이디를 입력하세요"><br>
+                비밀번호: <input type="password" name="U_PW" id="U_PW" placeholder="비밀번호를 입력하세요"><br>
+                <a href="../findId/findId.html">아이디 찾기 / 비밀번호 찾기</a><br><br>
+                <button type="submit" class="btn">로그인</button>
+            </form>
+            <button class="join-btn">회원가입</button>
+            <div class="kakao-btn">
+                <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+                    <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+                        alt="카카오 로그인 버튼" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <script scr="header.js"></script>
+
+
+
+    <!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ카카오로그인 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+        integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx"
+        crossorigin="anonymous"></script>
+    <script>
+        Kakao.init('9c531d4938c9e9be44937acdc74c9589'); // 사용하려는 앱의 JavaScript 키 입력
+    </script>
+
+
+    <p id="token-result"></p>
+
+    <script>
+        function loginWithKakao() {
+            Kakao.Auth.authorize({
+                redirectUri: 'https://developers.kakao.com/tool/demo/oauth',
+            });
+        }
+
+        // 아래는 데모를 위한 UI 코드입니다.
+        displayToken()
+        function displayToken() {
+            var token = getCookie('authorize-access-token');
+
+            if (token) {
+                Kakao.Auth.setAccessToken(token);
+                Kakao.Auth.getStatusInfo()
+                    .then(function (res) {
+                        if (res.status === 'connected') {
+                            document.getElementById('token-result').innerText
+                                = 'login success, token: ' + Kakao.Auth.getAccessToken();
+                        }
+                    })
+                    .catch(function (err) {
+                        Kakao.Auth.setAccessToken(null);
+                    });
+            }
+        }
+
+        function getCookie(name) {
+            var parts = document.cookie.split(name + '=');
+            if (parts.length === 2) { return parts[1].split(';')[0]; }
+        }
+    </script>
+    <script type="text/javascript">
+        function gopageInfo() {6
+            location.href = "mypageInfo.html";
+        }
+        function gopagePw() {
+            location.href = "mypagePw.html";
+        }
+        function gopageQnA() {
+            location.href = "mypageQnA.html";
+        }
+        function gopageShare() {
+            location.href = "mypageShare.html";
+        }
+        function gopageWithdrawal() {
+            location.href = "mypageWithdrawal.html";
+        }
+    </script>
+
+    <script src="/js/main/header.js"></script>
+</body>
+
+</html>

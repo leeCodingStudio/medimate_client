@@ -1,0 +1,148 @@
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+
+*{
+    font-family: 'bitbit';
+}
+
+
+/* 헤더 */
+header {
+    width: 90%;
+    height: 80px;
+    border: 0;
+    box-shadow: 2px 3px 5px 0 rgb(196, 191, 191);
+    border-radius: 30px;
+    margin: 25px auto;
+    padding: 5px 30px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    font-weight: 200;
+}
+
+header ul,
+header h1 {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    line-height: 80px;
+}
+
+header li {
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* 로고 */
+.header-logo h1 {
+    cursor: pointer;
+    color: #53d36b;
+}
+
+/* 리스트 */
+.header-nav {
+    font-size: 24px;
+}
+
+.header-nav li {
+    margin: 0 35px;
+}
+
+
+/* 로그인/회원가입 */
+.header-state li {
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+
+/* 로그인/회원가입 */
+.header-state li {
+    font-size: 18px;
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+
+input {
+    margin-left: 20px;
+    border: 1px solid #53d36b;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* 중간 부분 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    flex-direction: column;
+}
+.annc-search{
+    width: 55rem;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 8rem;
+    background-color: lightgrey;
+    border-radius: 20px;
+}
+.annc-search input{
+    width: 40rem;
+    height: 2rem;
+    margin-right: 1rem;
+}
+.annc-content{
+    width: 55rem;
+    margin-top: 3rem;
+}
+.annc-content p{
+    padding-top: 1rem;  
+    margin: 0 auto;
+}
+.content-title{
+    border-bottom: 1px solid #53d36b;
+    padding-bottom: 1rem;
+}
+.annc-pgnum{
+    margin-top: 3rem;
+}
+.content-title, .content2, .content3, .content4, .content5, .content6{
+    display: flex;
+    justify-content: center;
+    word-spacing: 3rem;
+}
+
+.annc-pgnum{
+    display: flex;
+}
+.pgnum1, .pgnum2, .pgnum3, .pgnum4, .pgnum5, .pgnum6{
+    cursor: pointer;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+/* 버튼 */
+button {
+    margin-left: 20px;
+    cursor: pointer;
+    color: white;
+    background-color: #53d36b;
+    border: 1px solid #53d36b;
+    border-radius: 10deg;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 13%;
+    text-align: center;
+    line-height: 1rem;
+    padding: 10px;
+}
+
+/* 임시 */
+.content2 {
+    cursor: pointer;
+}
