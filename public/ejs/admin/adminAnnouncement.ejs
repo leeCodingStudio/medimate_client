@@ -42,13 +42,13 @@
                     <li class="row-1">비고</li>
                 </ul>
             </div>
-            <% userList.forEach(data => { %>
+            <% list.forEach(data => { %>
                 <div class="list-info">
                     <ul>
-                        <li class="row-1"><%= list.rows.datas%></li>
-                        <li class="row-3">버전업데이트(1.0.1ver)</li>
-                        <li class="row-1">이현준</li>
-                        <li class="row-1">2023-04-25</li>
+                        <li class="row-1"><%= data.A_NUM %></li>
+                        <li class="row-3"><%= data.A_TITLE %></li>
+                        <li class="row-1"><%= data.U_NAME %></li>
+                        <li class="row-1"><%= data.A_NUM %></li>
                         <li class="row-1"><button class="ancm-info-btn">상세보기</button></li>
                     </ul>
                 </div>
@@ -74,7 +74,7 @@
 
 
     <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
-    <script src="admin.js"></script>
-    <script src="adminAncm.js"></script>
+    <script src="/js/admin/admin.js"></script>
+    <script src="/js/admin/adminAncm.js"></script>
 </body>
 </html>
