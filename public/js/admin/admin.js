@@ -5,19 +5,19 @@ const navAnnouncement = document.querySelector(".nav-announcement");
 const navQnA = document.querySelector(".nav-QnA");
 
 navUser.addEventListener('click', () => {
-    location.href='./adminUser.html';
+    location.href='/admin/user';
 })
 navDrugstore.addEventListener('click', () => {
-    location.href='./admindrugstore.html';
+    location.href='/admin/drugstore';
 })
 navMedicine.addEventListener('click', () => {
-    location.href='./adminmedicine.html';
+    location.href='/admin/medicine';
 })
 navAnnouncement.addEventListener('click', () => {
-    location.href='./adminAnnouncement.html';
+    location.href='/admin/announcement';
 })
 navQnA.addEventListener('click', () => {
-    location.href='./adminQnA.html';
+    location.href='/admin/qna';
 })
 
 const modalClose = document.querySelectorAll(".modal-close");
@@ -28,3 +28,6 @@ modalClose.forEach((v) => {
         modalWrite.classList.remove('active');
     });
 });
+
+
+
