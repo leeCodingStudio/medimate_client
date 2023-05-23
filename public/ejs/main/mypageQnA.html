@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mypageQnA.css">
+    <title>mypageQnA</title>
+</head>
+
+<body>
+
+    <div>
+        <header>
+            <div class="header-logo">
+                <h1>MEDIMATE</h1>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li class="header-drug">약국</li>
+                    <li class="header-medicine">약</li>
+                    <li class="header-calendar">캘린더</li>
+                    <li class="header-announcement">공지사항</li>
+                </ul>
+            </nav>
+            <div class="header-state">
+                <ul>
+                    <li class="header-login">로그인</li>
+                    <li class="header-join">회원가입</li>
+                </ul>
+            </div>
+        </header>
+    </div>
+
+    <div class="container">
+
+        <div class="sidebar-left">
+            <ul class="sidebar-left-list">
+                <li><button onclick="gopageInfo()">회원번호 수정</button></li>
+                <li><button onclick="gopagePw()">비밀번호 변경</button></li>
+                <li><button onclick="gopageShare()">캘린더 공유</button></li>
+                <li><button onclick="gopageQnA()">문의하기</button></li>
+                <li><button onclick="gopageWithdrawal()">회원 탈퇴</button></li>
+            </ul>
+        </div>
+    
+        <div class="container-qna">
+
+            <div class="small-title">
+                <h2>문의하기</h2>
+            </div>
+
+            <div class="list-qna-middle">
+                <div class="list-qna-content">
+                    <div class="content-title">
+                        <p class="list-qna-num">번호</p>
+                        <p class="list-qna-title">제목</p>
+                        <p class="list-qna-date">일자</p>
+                        <p class="list-qna-res">답변여부</p>
+                    </div>
+                    <div class="content2">
+                        <p class="list-qna-num">번호</p>
+                        <p class="list-qna-title">제목</p>
+                        <p class="list-qna-date">일자</p>
+                        <p class="list-qna-res">답변여부</p>
+                    </div>
+                    <div class="content3">
+                        <p class="list-qna-num">번호</p>
+                        <p class="list-qna-title">제목</p>
+                        <p class="list-qna-date">일자</p>
+                        <p class="list-qna-res">답변여부</p>
+                    </div>
+                    <div class="content4">
+                        <p class="list-qna-num">번호</p>
+                        <p class="list-qna-title">제목</p>
+                        <p class="list-qna-date">일자</p>
+                        <p class="list-qna-res">답변여부</p>
+                    </div>
+                    <div class="content5">
+                        <p class="list-qna-num">번호</p>
+                        <p class="list-qna-title">제목</p>
+                        <p class="list-qna-date">일자</p>
+                        <p class="list-qna-res">답변여부</p>
+                    </div>
+                    <div class="content6">
+                        <p class="list-qna-num">번호</p>
+                        <p class="list-qna-title">제목</p>
+                        <p class="list-qna-date">일자</p>
+                        <p class="list-qna-res">답변여부</p>
+                    </div>
+                </div>
+
+                <div class="list-qna-button">
+                    <button type="button" onclick="modalOpen();">문의 추가</button>
+                </div>
+
+            </div>
+
+            <div class="list-qna-bottom">
+
+                <div class="list-qna-search">
+                    <input type="text"><button onclick="">검색하기</button>
+                </div>
+
+                <div class="list-qna-pgnum">
+                    <p class="pgnum1"> 1</p>
+                    <p> | </p>
+                    <p class="pgnum2">2</p>
+                    <p> | </p>
+                    <p class="pgnum3">3</p>
+                    <p> | </p>
+                    <p class="pgnum4">4</p>
+                    <p> | </p>
+                    <p class="pgnum5">5</p>
+                    <p> | </p>
+                    <p class="pgnum6">> </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<!--모달창 html 기본 display:none-->
+    <div class="modal">
+        <div class="modal_container">
+            <div class="small_modal_title">
+                <h2>문의하기</h2>
+            </div>
+
+            <div class="modal_title">
+                <p>제목</p>
+                <p><input type="text" style="width:300px; border: 1px solid #53d36b"></p>
+            </div>
+
+            <div class="modal_body">
+                <p>문의내용</p>
+                <p><input type="text" style="width:300px; height:100px; border: 1px solid #53d36b"></p>
+            </div>
+
+            <div class="modal_btn">
+                <button onclick=""> 문의 등록 </button>
+                <button class="modal_close" type="button" onclick="modalClose();" style="background-color: #53d36b;"> 취소
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.querySelector('.modal')
+        const btnOpenModal = document.querySelector('.list-qna-button')
+        const btnCloseModal = document.querySelector('.modal_close')
+
+        btnOpenModal.addEventListener('click', () => {
+            modal.style.display = 'block'
+        })
+
+        btnCloseModal.addEventListener('click', () => {
+            modal.style.display = 'none'
+        })
+    </script>
+    <script type="text/javascript">
+        function gopageInfo() {
+            location.href = "mypageInfo.html";
+        }
+        function gopagePw() {
+            location.href = "mypagePw.html";
+        }
+        function gopageQnA() {
+            location.href = "mypageQnA.html";
+        }
+        function gopageShare() {
+            location.href = "mypageShare.html";
+        }
+        function gopageWithdrawal() {
+            location.href = "mypageWithdrawal.html";
+        }
+    </script>
+
+    <script src="/header.js"></script>
+
+
+</body>
+
+</html>

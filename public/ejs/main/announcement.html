@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./announcement.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <header>
+            <div class="header-logo">
+                <h1>MEDIMATE</h1>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    <li class="header-drug">약국</li>
+                    <li class="header-medicine">약</li>
+                    <li class="header-calendar">캘린더</li>
+                    <li class="header-announcement">공지사항</li>
+                </ul>
+            </nav>
+            <div class="header-state">
+                <ul>
+                    <li class="header-login">로그인</li>
+                    <li class="header-join">회원가입</li>
+                </ul>
+            </div>
+        </header>
+    </div>
+
+
+
+
+
+
+
+    <div class="container">
+
+            <div class="annc-search">
+                <input type="text" placeholder="이름검색"><button onclick="">검색하기</button>
+            </div>
+    
+            <div class="annc-content">
+                <div class="content-title">
+                    <p class="list-qna-num">번호</p>
+                    <p class="list-qna-title">제목</p>
+                    <p class="list-qna-date">일자</p>
+                    <p class="list-qna-res">답변여부</p>
+                </div>
+                <div class="content2">
+                    <p class="list-qna-num">번호</p>
+                    <p class="list-qna-title">제목</p>
+                    <p class="list-qna-date">일자</p>
+                    <p class="list-qna-res">답변여부</p>
+                </div>
+                <div class="content3">
+                    <p class="list-qna-num">번호</p>
+                    <p class="list-qna-title">제목</p>
+                    <p class="list-qna-date">일자</p>
+                    <p class="list-qna-res">답변여부</p>
+                </div>
+                <div class="content4">
+                    <p class="list-qna-num">번호</p>
+                    <p class="list-qna-title">제목</p>
+                    <p class="list-qna-date">일자</p>
+                    <p class="list-qna-res">답변여부</p>
+                </div>
+                <div class="content5">
+                    <p class="list-qna-num">번호</p>
+                    <p class="list-qna-title">제목</p>
+                    <p class="list-qna-date">일자</p>
+                    <p class="list-qna-res">답변여부</p>
+                </div>
+                <div class="content6">
+                    <p class="list-qna-num">번호</p>
+                    <p class="list-qna-title">제목</p>
+                    <p class="list-qna-date">일자</p>
+                    <p class="list-qna-res">답변여부</p>
+                </div>
+            </div>
+    
+            <div class="annc-pgnum">
+                <p class="pgnum1"> 1</p>
+                <p> | </p>
+                <p class="pgnum2">2</p>
+                <p> | </p>
+                <p class="pgnum3">3</p>
+                <p> | </p>
+                <p class="pgnum4">4</p>
+                <p> | </p>
+                <p class="pgnum5">5</p>
+                <p> | </p>
+                <p class="pgnum6">> </p>
+            </div>
+    </div>
+    <script>
+        const content = document.querySelector(".content2");
+        content.addEventListener('click', () => {
+            location.href = "./announcement-content.html"
+        })
+    </script>
+    <script src="/header.js"></script>
+</body>
+    
+</html>
