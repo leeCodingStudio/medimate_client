@@ -21,7 +21,7 @@ export async function modify(req, res){
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
-          },
+        },
         body: JSON.stringify({ U_NUM, U_ID, U_NAME, U_EMAIL, U_HP })
     }).then(() => res.redirect('/admin/user'))
 }
