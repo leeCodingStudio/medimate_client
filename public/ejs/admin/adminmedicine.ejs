@@ -77,17 +77,17 @@
             <button class="modal-close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <form action="/admin/medicine/update" method="post">
+            <form action="/admin/medicine/update" method="post"  enctype="multipart/form-data">
                 <div class="modal-title">
                     <h3>상세 약품 정보</h3>
                 </div>
                 <div class="modal-content">
                     <div class="modal-left">
                         <div class="modal-info">
-                            <input type="file">
+                            <input type="file" name="M_IMAGE">
                         </div>
                         <div class="modal-info">
-                            <img id="modalMimage" src="https://nedrug.mfds.go.kr/pbp/cmn/itemImageDownload/147426403087300104" alt="">
+                            <img id="modalMimage" src="" alt="">
                         </div>
                         <div class="modal-info">
                             <div>품목명</div>
@@ -184,14 +184,14 @@
             <button class="modal-close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <form action="/admin/medicine" method="post">
+            <form action="/admin/medicine" method="post" enctype="multipart/form-data">
                 <div class="modal-title">
                     <h3>약품 등록</h3>
                 </div>
                 <div class="modal-content">
                     <div class="modal-left">
                         <div class="modal-info">
-                            <input type="file">
+                            <input type="file" name="M_IMAGE" >
                         </div>
                         <div class="modal-info">
                             <img name="M_IMAGE" src="" alt="">
