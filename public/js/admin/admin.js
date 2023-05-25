@@ -1,5 +1,5 @@
 const navUser = document.querySelector(".nav-user");
-const navpharmacy = document.querySelector(".nav-pharmacy");
+const navDrugstore = document.querySelector(".nav-drugstore");
 const navMedicine = document.querySelector(".nav-medicine");
 const navAnnouncement = document.querySelector(".nav-announcement");
 const navQnA = document.querySelector(".nav-QnA");
@@ -7,8 +7,8 @@ const navQnA = document.querySelector(".nav-QnA");
 navUser.addEventListener('click', () => {
     location.href='/admin/user';
 })
-navpharmacy.addEventListener('click', () => {
-    location.href='/admin/pharmacy';
+navDrugstore.addEventListener('click', () => {
+    location.href='/admin/drugstore';
 })
 navMedicine.addEventListener('click', () => {
     location.href='/admin/medicine';

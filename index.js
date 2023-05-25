@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 app.use('/admin', adminRouter);
 app.use('/main', mainRouter);
+
 // 에러 페이지
 app.use((req, res, next) => {
     res.sendStatus(404)
