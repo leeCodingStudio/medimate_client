@@ -65,7 +65,7 @@ header li {
 
 /*검색 헤더 */
 
-.search_pharm{
+.search_drug{
     position: flex;
     flex-wrap: nowrap;
     height: 3.8rem;
@@ -83,7 +83,7 @@ header li {
     margin-top: 0.4rem;
 }
 
-.search_pharm select, .search_pharm input{
+.search_drug select, .search_drug input{
     display: inline-block;
     height: 44px;
     margin-left: 8px;
@@ -99,7 +99,7 @@ header li {
 }
 
 
-.search_pharm > button{
+.search_drug > button{
     display: inline-block;
     height: 44px;
     margin-left: 8px;

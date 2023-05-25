@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/admin/admin.css">
-    <link rel="stylesheet" href="../../css/admin/adminPharmacy.css">
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="stylesheet" href="/css/admin/admindrugstore.css">
     <title>약국관리</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
         <div class="logo"><h1>MEDIMATE</h1></div>
         <ul>
             <li class="nav-user"><i class="fa-solid fa-users"></i> 회원 관리</li>
-            <li class="nav-pharmacy active"><i class="fa-solid fa-house-medical"></i> 약국 관리</li>
+            <li class="nav-drugstore active"><i class="fa-solid fa-house-medical"></i> 약국 관리</li>
             <li class="nav-medicine"><i class="fa-solid fa-prescription-bottle-medical"></i> 약품 관리</li>
             <li class="nav-announcement"><i class="fa-solid fa-scroll"></i> 공지 사항</li>
             <li class="nav-QnA"><i class="fa-solid fa-comments"></i> 문의 사항</li>
@@ -28,7 +28,7 @@
     <main>
         <article class="title">
             <h2>약국관리</h2>
-            <form action="/admin/pharmacy" method="get" class="search">
+            <form action="/admin/drugstore" method="get" class="search">
                 <input class="searchbar" type="text" name="P_NAME" placeholder="약국명으로 검색">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
@@ -47,7 +47,7 @@
                 <ul>
                     
                     <li class="row-1"><%= data.P_NUM %></li>
-                    <li class="row-2"><%= data.P_NAME %></li>   
+                    <li class="row-2"><%= data.P_NAME %></li>
                     <li class="row-3">	
                         <%= data.P_ADDRESS %></li>
                     <li class="row-1">
@@ -79,7 +79,7 @@
             <button class="modal-close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <form action="/admin/pharmacy/update" method="post">
+            <form action="/admin/drugstore/update" method="post">
                 <div class="modal-title">
                     <h3>상세 약국 정보</h3>
                 </div>
@@ -177,7 +177,7 @@
             <button class="modal-close">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <form action="/admin/pharmacy" method="post">
+            <form action="/admin/drugstore" method="post">
                 <div class="modal-title">
                     <h3>약국 등록</h3>
                 </div>
@@ -272,6 +272,6 @@
     <script src="../../js/admin/modalInfo.js"></script>
     <script src="../../js/admin/admin.js"></script>
     <script src="../../js/admin/modalWrite.js"></script>
-    <script src="../../js/admin/pharmDetail.js"></script>
+    <script src="../../js/admin/drugDetail.js"></script>
 </body>
 </html>

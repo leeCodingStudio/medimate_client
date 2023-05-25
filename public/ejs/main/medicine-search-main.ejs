@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약국 검색 메인</title>
+    <link rel="stylesheet" href="./medicine-search-main.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>MEDIMATE</h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li class="header-drug">약국</li>
+                <li class="header-medicine">약</li>
+                <li class="header-calendar">캘린더</li>
+                <li class="header-announcement">공지사항</li>
+            </ul>
+        </nav>
+        <div class="header-state">
+            <ul>
+                <li class="header-login">로그인</li>
+                <li class="header-join">회원가입</li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="search_drug">
+        <select name="의약품">
+            <option value="일반 의약품">일반 의약품</option>
+            <option value="전문 의약품">전문 의약품</option>
+        </select>
+        <input type="text" placeholder="검색어를 입력하세요">
+        <button class="btn_detail1">검색</button>
+        <button class="btn_detail2" style="background-color:#53d36b; color: white; border: transparent;">상세검색</button>
+    </div>
+    <div class="abc-wrap">
+        <div class="abc">
+            <div class="container1">
+                <div id="drug-info1" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+                <div id="drug-info2" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+                <div id="drug-info3" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+                <div id="drug-info4" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+            </div>
+
+            <div class="container2">
+                <div id="drug-info5" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+                <div id="drug-info6" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+                <div id="drug-info7" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+                <div id="drug-info8" class="drug-info">
+                    <img src="/drug.png" alt="">
+                    <p>판시자임정</p>
+                    <p>건위소화제</p>
+                    <p>동국제약(주)</p>
+                    <p>12345678</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrap">
+        <div class="pagination">
+            <ul>
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- // 모달창 html 기본 display:none -->
+    <div id="modal-info" class="modal">
+        <div class="modal_container">
+            <div class="modal_img">
+                <img src="./images/drug.png" alt="drug">
+            </div>
+            <div class="modal_content">
+                <div class="content_title">
+                    <p>품목명</p>
+                    <p>일련번호</p>
+                    <p>업소명</p>
+                    <p>구분</p>
+                    <p>성상</p>
+                    <p>등록일자</p>
+                    <p>표시앞</p>
+                    <p>표시뒤</p>
+                    <p>색상앞</p>
+                    <p>색상뒤</p>
+                    <p>제형</p>
+                    <p>장축</p>
+                    <p>단축</p>
+                    <p>두께</p>
+                </div>
+                <div class="content_content">
+                    <p>판시자임정</p>
+                    <p>2022204500</p>
+                    <p>동국제약(주)</p>
+                    <p>일반의약품</p>
+                    <p>연녹색의 타원형 장용성 필름 코팅용</p>
+                    <p>2023년 03월 27일</p>
+                    <p>PSZ</p>
+                    <p>dk, ck</p>
+                    <p>연두</p>
+                    <p></p>
+                    <p>타원형</p>
+                    <p>14.3</p>
+                    <p>8.5</p>
+                    <p>5.2</p>
+                </div>
+            </div>
+            <div class="xbtn" onlick="btnCloseModal">
+                <span class="close_button" style="cursor: pointer;">X</span>
+            </div>
+        </div>
+    </div>
+    <script src="medicine.js"></script>
+    <script src="modalInfo.js"></script>
+</body>
+
+</html>
