@@ -1,10 +1,11 @@
-@font-face {
-    font-family: 'medimate';
-    src: url('./fonts/DNFBitBitOTF.woff') format('woff');
-font-weight: 700;
-font-style: normal;
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
 }
 
+*{
+    font-family: 'bitbit';
+}
 
 body {
     font-family: "medimate";  
@@ -76,20 +77,20 @@ input {
 /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 /* 왼쪽 사이드바 */
 .sidebar-left {
-display: inline;
-border: 3px solid #53d36b;
-width: 180px;
-height: 20rem;
-margin-top: 5rem;
-border-top-left-radius: 30%;
-border-top-right-radius: 30%;
+    display: inline;
+    border: 3px solid #53d36b;
+    margin-top: 15rem;
+    width: 180px;
+    height: 20rem;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
 }
 .sidebar-left-list   {
 width: 100%;
 padding: 10px;
 }
 .sidebar-left-list button {
-font-family: "medimate";  
+font-family: 'bitbit';
 position: relative;
 right: 10px;
 width: 80%;
@@ -118,9 +119,11 @@ font-weight: bolder;
 
 /* 탈퇴관련 내용물 */
 .container-withdrawal {
-    width: 41%;
     border: none;
     padding: 20px;
+    width: 700px;
+    margin-top: 10rem;
+    margin-left: 5rem;
 }
 
 .contents-withdrawal {
@@ -143,15 +146,18 @@ button {
     margin-left: 20px;
     cursor: pointer;
     color: white;
-    background-color: #53d36b;
-    border: 1px solid  #53d36b;
+    background-color: red;
+    border: 1px solid black;
     border-radius: 10deg;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 13%;
+    border-radius: 30%;
     text-align: center;
     line-height: 1.2rem;
     padding: 10px;
+    height: 3rem;
+    width: 15rem;
+    font-size: 2rem;
 }
 
 /* 가운데 정렬 */

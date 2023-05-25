@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mypageQnA.css">
+    <link rel="stylesheet" href="/css/main/mypageQnA.css">
     <title>mypageQnA</title>
 </head>
 
 <body>
+    <% if(flag){ %>
+        <script>alert('비밀번호 틀렸습니다')</script>
+        <% }else if(success) { %>
+            <script>alert('비밀번호 변경완료')</script>
+            <% }%>
 
     <div>
         <header>
@@ -59,49 +64,24 @@
                         <p class="list-qna-date">일자</p>
                         <p class="list-qna-res">답변여부</p>
                     </div>
+                    <% qnaList.forEach(data=> { %>
+                    
                     <div class="content2">
-                        <p class="list-qna-num">번호</p>
-                        <p class="list-qna-title">제목</p>
-                        <p class="list-qna-date">일자</p>
-                        <p class="list-qna-res">답변여부</p>
+                        <p class="list-qna-num"><%= data.Q_NUM %></p>
+                        <p class="list-qna-title"><%= data.Q_TITLE.slice(0,3) %>..</p>
+                        <p class="list-qna-date"><%= data.createdAt.slice(5,10)%></p>
+                        <p class="list-qna-res"><%= data.Q_ANSWER %></p>
                     </div>
-                    <div class="content3">
-                        <p class="list-qna-num">번호</p>
-                        <p class="list-qna-title">제목</p>
-                        <p class="list-qna-date">일자</p>
-                        <p class="list-qna-res">답변여부</p>
-                    </div>
-                    <div class="content4">
-                        <p class="list-qna-num">번호</p>
-                        <p class="list-qna-title">제목</p>
-                        <p class="list-qna-date">일자</p>
-                        <p class="list-qna-res">답변여부</p>
-                    </div>
-                    <div class="content5">
-                        <p class="list-qna-num">번호</p>
-                        <p class="list-qna-title">제목</p>
-                        <p class="list-qna-date">일자</p>
-                        <p class="list-qna-res">답변여부</p>
-                    </div>
-                    <div class="content6">
-                        <p class="list-qna-num">번호</p>
-                        <p class="list-qna-title">제목</p>
-                        <p class="list-qna-date">일자</p>
-                        <p class="list-qna-res">답변여부</p>
-                    </div>
+                    <% })%>
                 </div>
 
                 <div class="list-qna-button">
+                    <br>
+                    <br>
                     <button type="button" onclick="modalOpen();">문의 추가</button>
                 </div>
 
             </div>
-
-            <div class="list-qna-bottom">
-
-                <div class="list-qna-search">
-                    <input type="text"><button onclick="">검색하기</button>
-                </div>
 
                 <div class="list-qna-pgnum">
                     <p class="pgnum1"> 1</p>
@@ -122,29 +102,28 @@
     </div>
 
 <!--모달창 html 기본 display:none-->
+<form action="/main/mypage/qna" method="post">
+    <input type="hidden">
     <div class="modal">
         <div class="modal_container">
             <div class="small_modal_title">
-                <h2>문의하기</h2>
+                <h2 style="font-size:  30px;">문의하기</h2>
             </div>
-
-            <div class="modal_title">
-                <p>제목</p>
-                <p><input type="text" style="width:300px; border: 1px solid #53d36b"></p>
-            </div>
-
+            <br>
+            <br>
             <div class="modal_body">
                 <p>문의내용</p>
-                <p><input type="text" style="width:300px; height:100px; border: 1px solid #53d36b"></p>
+                <p><input type="text" name="Q_TITLE" style="width:300px; height:100px; border: 1px solid #53d36b"></p>
             </div>
 
             <div class="modal_btn">
-                <button onclick=""> 문의 등록 </button>
+                <button type="submit"> 문의 등록 </button>
                 <button class="modal_close" type="button" onclick="modalClose();" style="background-color: #53d36b;"> 취소
                 </button>
             </div>
         </div>
     </div>
+</form>
 
     <script>
         const modal = document.querySelector('.modal')
@@ -161,21 +140,21 @@
     </script>
     <script type="text/javascript">
         function gopageInfo() {
-            location.href = "mypageInfo.html";
+            location.href = "/main/mypage/info";    
         }
         function gopagePw() {
-            location.href = "mypagePw.html";
+            location.href = "/main/mypage/pw";    
         }
         function gopageQnA() {
-            location.href = "mypageQnA.html";
+            location.href = "/main/mypage/qna";    
         }
         function gopageShare() {
-            location.href = "mypageShare.html";
+            location.href = "/main/mypage/qna";    
         }
         function gopageWithdrawal() {
-            location.href = "mypageWithdrawal.html";
+            location.href = "/main/mypage/withdrawal";    
         }
-    </script>
+        </script>
 
     <script src="/header.js"></script>
 

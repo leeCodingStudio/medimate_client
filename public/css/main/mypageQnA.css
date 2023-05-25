@@ -1,11 +1,12 @@
 /* 폰트 */
-@font-face {
-    font-family: 'medimate';
-    src: url('./fonts/DNFBitBitOTF.woff') format('woff');
-font-weight: 700;
-font-style: normal;
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
 }
 
+*{
+    font-family: 'bitbit';
+}
 /* 바디 */
 body {
 margin: 0;
@@ -120,6 +121,7 @@ font-weight: bolder;
     padding: 20px;
     width: 700px;
     margin-top: 10rem;
+    margin-left: 5rem;
 }
 
 
@@ -134,7 +136,8 @@ font-weight: bolder;
     font-size: 1rem;
 }
 .list-qna-content p{
-margin-right: 140px; 
+margin-right: 0px; 
+width: 200px;
 }
 .content-title, .content2, .content3, .content4, .content5, .content6{
     display: flex;
@@ -172,11 +175,11 @@ margin-right: 140px;
 
 /* 페이지 이동버튼 */
 .list-qna-pgnum {
-    position: relative;
     bottom: 20px;
     margin-right: 20px;
     display: flex;
     cursor: pointer;
+    justify-content: center;
 }
 .list-qna-pgnum p {
     margin-left: 10px;

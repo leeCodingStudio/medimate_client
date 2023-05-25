@@ -8,11 +8,13 @@ const headerJoin = document.querySelector(".header-join");
 const headerMypage = document.querySelector(".header-mypage");
 
 
+
+
 headerLogo.addEventListener(('click'), () => {
-    location.href="/main";
+    location.href="/main/index";
 });
 headerDrug.addEventListener(('click'), () => {
-    location.href="/main/drug";
+    location.href="/main/pharmacy";
 });
 headerMedicine.addEventListener(('click'), () => {
     location.href="/main/medicine";

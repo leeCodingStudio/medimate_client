@@ -4,6 +4,12 @@ const navDrugstore = document.querySelector(".nav-drugstore");
 const navMedicine = document.querySelector(".nav-medicine");
 const navAnnouncement = document.querySelector(".nav-announcement");
 const navQnA = document.querySelector(".nav-QnA");
+const navlogo = document.querySelector('.logo')
+
+
+navlogo.addEventListener('click', () => {
+    location.href='/main/index';
+})
 
 logo.addEventListener('click', () => {
     location.href='/main/index';
