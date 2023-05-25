@@ -14,8 +14,3 @@ modalClose.forEach((v) => {
         modalWrite.classList.remove('active');
     });
 });
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
