@@ -28,8 +28,9 @@
     <main> <!-- 주요 컨텐츠 담는 부분 -->
         <article class="title">  
             <h2>회원관리</h2>
-            <form action="/admin/user" method="get" class="search">
-                <input type="text" name="U_NAME" placeholder="이름으로 검색">
+            <form action="/admin/user" method="get" class="search" id="search">
+                <input type="hidden" name="page" id="page">
+                <input type="text" name="U_NAME" placeholder="이름으로 검색" value="<%= U_NAME %>">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </article>
@@ -59,6 +60,26 @@
                 </ul>
             </div>
             <% })} %>
+            <div class="pagination">
+                <ul>
+                    <div class="pagination">
+                        <ul>
+                            <% if (page > 1) { %>
+                                <li onclick="page('<%= page - 1 %>')"><</li>
+                            <% } %>
+                            
+                            <% for (let i = startPage; i <= endPage; i++) { %>
+                            <% if (page==i) { %>
+                                <li class="active"><%= i %></li>
+                            <% } else { %>
+                                <li onclick="page('<%= i %>')"><%= i %></li>
+                            <% } %>
+                            <% } %>
+                            <% if (page < totalPages) { %>
+                                <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                            <% } %>
+                </ul>
+            </div>
         </article>
     </main>
     <div class="modal" id="modal-info">

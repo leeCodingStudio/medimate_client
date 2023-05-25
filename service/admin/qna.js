@@ -1,4 +1,5 @@
 import { config } from '../../config.js';
+import Pagination from '../../middleware/pagination.js';
 import * as TokenStorage from '../../token.js'
 
 
@@ -12,8 +13,10 @@ export async function showAll(req, res) {
     fetch(url, {headers: getHeaders()})
         .then(response => response.json())
         .then(qnaList => {
-            console.log(getHeaders());
-            res.render('../public/ejs/admin/adminQnA', { qnaList });
+            let pagination = Pagination(page, qnaList.count, 10);
+            pagination.qnaList = qnaList.rows;
+            pagination.Q_TITLE = Q_TITLE;
+            res.render('../public/ejs/admin/adminQnA', pagination);
         });
 }
 

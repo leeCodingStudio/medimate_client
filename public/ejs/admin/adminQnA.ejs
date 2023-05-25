@@ -32,8 +32,9 @@
     <main>
         <article class="title">
             <h2>문의사항</h2>
-            <form action="/admin/qna" method="get" class="search">
-                <input type="text" name="Q_TITLE" placeholder="내용으로 검색">
+            <form action="/admin/qna" method="get" class="search" id="search">
+                <input type="hidden" name="page" id="page">
+                <input type="text" name="Q_TITLE" placeholder="내용으로 검색" value="<%= Q_TITLE %>">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </article>
@@ -50,8 +51,8 @@
             </div>
 
             <% 
-            if(qnaList.rows){
-            qnaList.rows.forEach(data=> { %>
+            if(qnaList){
+            qnaList.forEach(data=> { %>
                 <div class="list-info">
                     <ul>
                         <% if(!data.Q_ANSWER){ %>
@@ -87,12 +88,20 @@
 
                     <div class="pagination">
                         <ul>
-                            <li class="active">1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            <li>></li>
+                            <% if (page > 1) { %>
+                                <li onclick="page('<%= page - 1 %>')"><</li>
+                            <% } %>
+                            
+                            <% for (let i = startPage; i <= endPage; i++) { %>
+                            <% if (page==i) { %>
+                                <li class="active"><%= i %></li>
+                            <% } else { %>
+                                <li onclick="page('<%= i %>')"><%= i %></li>
+                            <% } %>
+                            <% } %>
+                            <% if (page < totalPages) { %>
+                                <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                            <% } %>
                         </ul>
                     </div>
         </article>

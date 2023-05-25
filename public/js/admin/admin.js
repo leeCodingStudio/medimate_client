@@ -1,9 +1,13 @@
+const logo = document.querySelector(".logo");
 const navUser = document.querySelector(".nav-user");
 const navDrugstore = document.querySelector(".nav-drugstore");
 const navMedicine = document.querySelector(".nav-medicine");
 const navAnnouncement = document.querySelector(".nav-announcement");
 const navQnA = document.querySelector(".nav-QnA");
 
+logo.addEventListener('click', () => {
+    location.href='/main/index';
+})
 navUser.addEventListener('click', () => {
     location.href='/admin/user';
 })

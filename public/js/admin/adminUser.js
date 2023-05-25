@@ -16,3 +16,11 @@ function modal(data) {
 function remove() {
     location.href=`/admin/user/remove/${U_NUM.value}`; 
 }
+
+// 페이지네이션 + 검색
+const pageIpt = document.getElementById('page');
+const search = document.getElementById('search');
+function page(page){
+    pageIpt.value = page;
+    search.submit();
+}
