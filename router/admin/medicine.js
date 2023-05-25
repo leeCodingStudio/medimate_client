@@ -1,11 +1,11 @@
 import express from 'express';
-import * as drugService from '../../service/admin/medicine.js';
+import * as pharmService from '../../service/admin/medicine.js';
 
 const router = express.Router();
 
-router.get('/', drugService.showAll);
-router.post('/', drugService.insertDrug);
-router.post('/update', drugService.updateDrug);
-router.get('/remove/:id', drugService.deleteDrug);
+router.get('/', pharmService.showAll);
+router.post('/', pharmService.insertpharm);
+router.post('/update', pharmService.updatepharm);
+router.get('/remove/:id', pharmService.deletepharm);
 
 export default router;

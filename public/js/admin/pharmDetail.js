@@ -49,6 +49,6 @@ function modal(data2) {
 }
 
 function remove(req, res) {
-location.href=`/admin/drugstore/remove/${P_NUM.value}`
+location.href=`/admin/pharmacy/remove/${P_NUM.value}`
 };
 
