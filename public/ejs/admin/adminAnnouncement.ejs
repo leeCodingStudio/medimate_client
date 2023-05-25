@@ -27,8 +27,8 @@
     <main>
         <article class="title">
             <h2>공지사항</h2>
-            <form action="#" method="post" class="search">
-                <input type="text" name="userId" placeholder="제목으로 검색">
+            <form action="/admin/announcement" method="get" class="search">
+                <input type="text" name="A_TITLE" placeholder="제목으로 검색">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </article>
@@ -42,14 +42,14 @@
                     <li class="row-1">비고</li>
                 </ul>
             </div>
-            <% list.forEach(data => { %>
+            <% AnnouncementList.rows.forEach(data => { %>
                 <div class="list-info">
                     <ul>
                         <li class="row-1"><%= data.A_NUM %></li>
                         <li class="row-3"><%= data.A_TITLE %></li>
                         <li class="row-1"><%= data.U_NAME %></li>
                         <li class="row-1"><%= data.A_NUM %></li>
-                        <li class="row-1"><button class="ancm-info-btn">상세보기</button></li>
+                        <li class="row-1"><button class="ancm-info-btn" name="A_NUM" onclick="func1('<%=data.A_NUM %>')">상세보기</button></li>
                     </ul>
                 </div>
             <% }) %>
@@ -66,7 +66,7 @@
                 </ul>
             </div>
             <div class="write-btn">
-                <button onclick="location.href='adminAncmWrite.html'">글 작성</button>
+                <button onclick="location.href='/admin/announcement/write'">글 작성</button>
             </div>
         </article>
     </main>
@@ -76,5 +76,6 @@
     <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
     <script src="/js/admin/admin.js"></script>
     <script src="/js/admin/adminAncm.js"></script>
+
 </body>
 </html>
