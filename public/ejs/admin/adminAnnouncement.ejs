@@ -27,8 +27,9 @@
     <main>
         <article class="title">
             <h2>공지사항</h2>
-            <form action="/admin/announcement" method="get" class="search">
-                <input type="text" name="A_TITLE" placeholder="제목으로 검색">
+            <form action="/admin/announcement" method="get" class="search" id="search">
+                <input type="hidden" name="page" id="page">
+                <input type="text" name="A_TITLE" placeholder="제목으로 검색" value="<%= A_TITLE %>">
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </article>
@@ -42,7 +43,7 @@
                     <li class="row-1">비고</li>
                 </ul>
             </div>
-            <% AnnouncementList.rows.forEach(data => { %>
+            <% list.forEach(data => { %>
                 <div class="list-info">
                     <ul>
                         <li class="row-1"><%= data.A_NUM %></li>
@@ -56,15 +57,23 @@
             
             
             <div class="pagination">
-                <ul>
-                    <li class="active">1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>></li>
-                </ul>
-            </div>
+                        <ul>
+                            <% if (page > 1) { %>
+                                <li onclick="page('<%= page - 1 %>')"><</li>
+                            <% } %>
+                            
+                            <% for (let i = startPage; i <= endPage; i++) { %>
+                            <% if (page==i) { %>
+                                <li class="active"><%= i %></li>
+                            <% } else { %>
+                                <li onclick="page('<%= i %>')"><%= i %></li>
+                            <% } %>
+                            <% } %>
+                            <% if (page < totalPages) { %>
+                                <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                            <% } %>
+                        </ul>
+                    </div>
             <div class="write-btn">
                 <button onclick="location.href='/admin/announcement/write'">글 작성</button>
             </div>

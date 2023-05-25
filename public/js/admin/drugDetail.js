@@ -52,3 +52,11 @@ function remove(req, res) {
 location.href=`/admin/drugstore/remove/${P_NUM.value}`
 };
 
+
+// 페이지네이션 + 검색
+const pageIpt = document.getElementById('page');
+const search = document.getElementById('search');
+function page(page){
+    pageIpt.value = page;
+    search.submit();
+}

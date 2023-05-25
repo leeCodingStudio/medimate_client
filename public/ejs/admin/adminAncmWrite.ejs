@@ -26,7 +26,7 @@
     </nav>
 
     <main>
-        <form action="/admin/announcement" method="post">
+        <form action="/admin/announcement" method="post" enctype="multipart/form-data" >
         <article class="title">
             <h2>공지사항 작성</h2>
         </article>
@@ -44,7 +44,7 @@
             </div>
         </article>
         <article class="content-text">
-            <textarea name="" placeholder="내용을 입력하세요"></textarea>
+            <textarea name="A_CONTENT" placeholder="내용을 입력하세요"></textarea>
         </article>
     </main>
 </form>
@@ -52,6 +52,6 @@
 
 
     <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
-    <script src="admin.js"></script>
+    <script src="/js/admin/admin.js"></script>
 </body>
 </html>

@@ -9,3 +9,11 @@ function modal(data){
     Q_TITLE.value = qna.Q_TITLE,
     Q_CONTENT.value = qna.Q_CONTENT
 }
+
+// 페이지네이션 + 검색
+const pageIpt = document.getElementById('page');
+const search = document.getElementById('search');
+function page(page){
+    pageIpt.value = page;
+    search.submit();
+}

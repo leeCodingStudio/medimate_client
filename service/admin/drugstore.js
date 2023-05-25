@@ -1,4 +1,5 @@
 import { config } from '../../config.js';
+import Pagination from '../../middleware/pagination.js';
 
 export async function showAll(req, res) {
     const page = req.query.page || 1;
@@ -10,7 +11,10 @@ export async function showAll(req, res) {
     fetch(url)
         .then(response => response.json())
         .then(drugList => {
-            res.render('../public/ejs/admin/adminDrugstore', { list: drugList.rows, count: drugList.count })
+            let pagination = Pagination(page, drugList.count, 10);
+            pagination.list = drugList.rows;
+            pagination.P_NAME = P_NAME;
+            res.render('../public/ejs/admin/adminDrugstore', pagination)
         });
 }
 
