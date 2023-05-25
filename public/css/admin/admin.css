@@ -71,6 +71,10 @@ nav li:hover, nav li.active {
     background-color: #59606c;
 }
 
+.logo{
+    cursor: pointer;
+}
+
 
 /* 메인 */
 main {

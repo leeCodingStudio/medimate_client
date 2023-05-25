@@ -1,23 +1,29 @@
-import { response } from 'express';
 import { config } from '../../config.js';
+import Pagination from '../../middleware/pagination.js';
 import * as TokenStorage from '../../token.js'
 
 
 export async function showAll(req, res) {
-    fetch(config.base + '/admin/qna', {
-        headers: getHeaders()
-    })
+    const page = req.query.page || 1
+    const Q_TITLE = req.query.Q_TITLE;
+    const url = Q_TITLE
+    ? `${config.base}/admin/qna?page=${page}&Q_TITLE=${Q_TITLE}`
+    : `${config.base}/admin/qna?page=${page}`;
+
+    fetch(url, {headers: getHeaders()})
         .then(response => response.json())
         .then(qnaList => {
-            console.log(getHeaders());
-            res.render('../public/ejs/admin/adminQnA', { qnaList });
+            let pagination = Pagination(page, qnaList.count, 10);
+            pagination.qnaList = qnaList.rows;
+            pagination.Q_TITLE = Q_TITLE;
+            res.render('../public/ejs/admin/adminQnA', pagination);
         });
 }
 
 
 export async function create(req, res) {
     const { Q_CONTENT, Q_NUM } = req.body
-    fetch('http://localhost:8080/admin/qna', {
+    fetch(`${config.base}/admin/qna`, {
         method: 'PUT',
         headers:getHeaders(),
         body: JSON.stringify({

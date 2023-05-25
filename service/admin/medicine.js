@@ -1,4 +1,5 @@
 import { config }  from '../../config.js';
+import Pagination from '../../middleware/pagination.js';
 
 
 //=========== 전체 보기 ===========
@@ -12,7 +13,10 @@ export async function showAll(req, res){
     fetch(url)
     .then(response => response.json())
     .then(drugList => {
-        res.render('../public/ejs/admin/adminmedicine', {drugList});
+        let pagination = Pagination(page, drugList.count, 10);
+        pagination.drugList = drugList.rows;
+        pagination.M_NAME = M_NAME;
+        res.render('../public/ejs/admin/adminmedicine', pagination);
     });
 }
 
