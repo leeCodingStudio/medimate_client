@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약국 검색 메인</title>
+    <link rel="stylesheet" href="/css/main/pharmacy.css">
+    <link rel="stylesheet" href="/css/main/modal.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>MEDIMATE</h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li class="header-pharm">약국</li>
+                <li class="header-medicine">약</li>
+                <li class="header-calendar">캘린더</li>
+                <li class="header-announcement">공지사항</li>
+            </ul>
+        </nav>
+        <div class="header-state">
+            <ul>
+                <li class="header-login">로그인</li>
+                <li class="header-join">회원가입</li>
+            </ul>
+        </div>
+    </header>
+    <form action="/main/pharmacy" method="get" class="search">
+    <div class="search_pharm">
+        <select name="P_ADDRESS" id="P_ADDRESS">
+            <option value="강남구">강남구</option>
+            <option value="강서구">강서구</option>
+            <option value="강동구">강동구</option>
+            <option value="강북구">강북구</option>
+            <option value="관악구">관악구</option>
+            <option value="광진구">광진구</option>
+            <option value="구로구">구로구</option>
+            <option value="금천구">금천구</option>
+            <option value="노원구">노원구</option>
+            <option value="도봉구">도봉구</option>
+            <option value="동대문구">동대문구</option>
+            <option value="동작구">동작구</option>
+            <option value="마포구">마포구</option>
+            <option value="서대문구">서대문구</option>
+            <option value="서초구">서초구</option>
+            <option value="성동구">성동구</option>
+            <option value="성북구">성북구</option>
+            <option value="송파구">송파구</option>
+            <option value="양천구">양천구</option>
+            <option value="영등포구">영등포구</option>
+            <option value="용산구">용산구</option>
+            <option value="은평구">은평구</option>
+            <option value="종로구">종로구</option>
+            <option value="중구">중구</option>
+            <option value="중랑구">중랑구</option>
+        </select>
+        <input placeholder="이름 검색" name="P_NAME" id="pharm_search">
+        <button>검색하기</button>
+    </form>
+    </div>
+
+    <!--지도 api-->
+    <div class="map">
+        <div id="map" style="width:500px;height:400px; margin: 25px auto; display :inline-flex; z-index: 0;"></div>
+
+        <div class="search_container">
+            
+            <div class="classification" >
+                <h3>지역</h3>
+                <h3>약국이름</h3>
+                <h3>영업시간</h3>
+                <br>
+            </div>
+            <% list.forEach(data => { %>
+                <input type="hidden" name= "data">
+            <div class="data" onclick="modal2('<%= JSON.stringify(data)%>')">
+                <div class="column"><%= data.P_ADDRESS %></div>
+                <div class="column"><%= data.P_NAME %></div>
+                <div class="column">0<%= data.P_MON_S %> ~ <%= data.P_MON_C %></div>
+            </div>
+            <% }) %>
+            <div class="paging">
+                <li>1</li>
+                <li>2</li>  
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li class="next-paging">></li>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    
+    <!--모달창 html 기본 display:none-->
+    <form action="/main/pharm" method="get">
+        <div class="modal">
+            <div class="modal_body">
+                <div class="modal_header"><img src="../../img/close_cursor.png" alt="닫기버튼" style="width:30px; height: 30px;"></div>
+                <div class="modal_container">
+                    <div class="modal_body1">
+                        <li>약국번호</li>
+                        <li>약국명</li>
+                        <li>주소</li>
+                        <li>대표 전화</li>
+                    </div>
+    
+                    <div class="modal_body2">
+                        <li><input type="text" id="modalPnum"name="P_NUM"></li>
+                        <li><input type="text" id="modalPname"name="P_NAME"></li>
+                        <li><input type="text" id="modalPaddress"name="P_ADDRESS"></li>
+                        <li><input type="text" id="modalPphone"name="P_PHONE"></li>
+                    </div>
+                </div>
+                <div class="modal_container">
+                    <div class="modal_body3">
+                        <li>월요일</li>
+                        <li>화요일</li>
+                        <li>수요일</li>
+                        <li>목요일</li>
+                        <li>금요일</li>
+                        <li>토요일</li>
+                        <li>일요일</li>
+                        <li>공휴일</li>
+                    </div>
+                    <div class="modal_body4">
+                        <li><input type="text" name="P_MON_S" id="modalPmons"> ~ <input type="text" name="P_MON_C"
+                                id="modalPmonc"></li>
+                        <li><input type="text" name="P_TUE_S" id="modalPtues"> ~ <input type="text" name="P_TUE_C"
+                                id="modalPtuec"></li>
+                        <li><input type="text" name="P_WED_S" id="modalPweds"> ~ <input type="text" name="P_WED_C"
+                                id="modalPwedc"></li>
+                        <li><input type="text" name="P_THU_S" id="modalPthus"> ~ <input type="text" name="P_THU_C"
+                                id="modalPthuc"></li>
+                        <li><input type="text" name="P_FRI_S" id="modalPfris"> ~ <input type="text" name="P_FRI_C"
+                                id="modalPfric"></li>
+                        <li><input type="text" name="P_SAT_S" id="modalPsats"> ~ <input type="text" name="P_SAT_C"
+                                id="modalPsatc"></li>
+                        <li><input type="text" name="P_SUN_S" id="modalPsuns"> ~ <input type="text" name="P_SUN_C"
+                                id="modalPsunc"></li>
+                        <li><input type="text" name="P_HOLI_S" id="modalPholis"> ~ <input type="text" name="P_HOLI_C"
+                                id="modalPholic"></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--지도 api-->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ad18607b8a921d4762fa3598c2f6473d"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+        var map = new kakao.maps.Map(container, options);
+    </script>
+
+
+    <script>
+        const modal = document.querySelector('.modal')
+        const btnOpenModal = document.querySelector('.data')
+        const btnCloseModal = document.querySelector('.modal_header')
+
+        btnOpenModal.addEventListener('click', () => {
+            modal.style.display = 'block'
+        })
+
+        btnCloseModal.addEventListener('click', () => {
+            modal.style.display = 'none'
+        })
+    </script>
+    <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
+    <script src="/js/main/header.js"></script>
+    <script src="/js/main/modalInfo.js"></script>
+    <script src="/js/main/pharmDetail.js"></script>
+
+</body>
+</html>

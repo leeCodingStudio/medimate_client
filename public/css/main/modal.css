@@ -64,7 +64,7 @@ header li {
 
 /*검색 헤더 */
 
-.search_drug{
+.search_pharm{
     position: flex;
     flex-wrap: nowrap;
     height: 3.8rem;
@@ -85,7 +85,7 @@ header li {
     border-radius: 15px;
 }
 
-.search_drug select, .search_drug input{
+.search_pharm select, .search_pharm input{
     display: inline-block;
     height: 44px;
     margin-left: 8px;
@@ -101,7 +101,7 @@ header li {
 }
 
 
-.search_drug > button{
+.search_pharm > button{
     display: inline-block;
     height: 44px;
     margin-left: 8px;
@@ -261,6 +261,12 @@ header li {
     list-style: none;
 }
 
+.modal_body2 {
+    text-align: right;
+    font-size: 20px;
+    margin-bottom: 3rem ;
+    list-style: none;
+}
 
 .modal_body3 li, .modal_body4 li{
     font-size: 20px;
