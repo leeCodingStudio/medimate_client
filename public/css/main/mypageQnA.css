@@ -224,10 +224,15 @@ button {
     justify-content: center;
 }
 
+/*모달창 내용보기*/
+.list-qna {
+    cursor: pointer;
+}
+
 
 /* 모달창 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
 /* 맨아래 버튼 */
-.modal {
+.modal{
     position: absolute;
     top: 20%;
     left: 33%;
@@ -235,13 +240,36 @@ button {
     height: 20rem;
     padding: 6rem;
     display: none;
-    background-color: white;
+    background-color: #d0d0d0;
     box-shadow: 1px;
-    border: 1px solid lightgrey;
+    border: 1px solid white;
     border-radius: 30px;
     box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
     z-index : 100;
 }
+
+.modal2{
+    position: absolute;
+    top: 20%;
+    left: 33%;
+    width: 20rem;
+    height: 20rem;
+    padding: 6rem;
+    display: none;
+    background-color: #d0d0d0;
+    box-shadow: 1px;
+    border: 1px solid white;
+    border-radius: 30px;
+    box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+    z-index : 100;
+}
+
+.modal_container2{
+    position: relative;
+    width: 100%;
+    bottom: 4rem;
+}
+
 .modal.show {
     display: block;
 }

@@ -7,6 +7,11 @@
     font-family: 'bitbit';
 }
 
+input{
+    height: 25px;
+}
+
+
 body {
     margin: 0;
 }

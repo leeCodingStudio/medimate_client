@@ -7,6 +7,10 @@
     font-family: 'bitbit';
 }
 
+p{
+    margin: 0;
+}
+
 
 /* 헤더 */
 header {
@@ -102,7 +106,7 @@ input {
 }
 .annc-content p{
     padding-top: 1rem;  
-    margin: 0 auto;
+    margin: 0 ;
 }
 .content-title{
     border-bottom: 1px solid #53d36b;
@@ -113,8 +117,9 @@ input {
 }
 .content-title, .content2, .content3, .content4, .content5, .content6{
     display: flex;
-    justify-content: center;
-    word-spacing: 3rem;
+    margin: 0;
+    justify-content: left;
+
 }
 
 .annc-pgnum{
@@ -143,6 +148,7 @@ button {
 }
 
 /* 임시 */
-.content2 {
+.content-title, .content2 {
     cursor: pointer;
+    justify-content: space-between;
 }
