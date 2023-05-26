@@ -9,7 +9,8 @@ export async function showAll(req, res) {
     fetch(config.base + '/main/login')
         .then(response => response.json())
         .then(res => console.log(res))
-        .then(res.render('../public/ejs/main/login',{ fail:true}));
+        .then(res.render('../public/ejs/main/login',
+        { fail:true, okjoin:true}));
 }
 
 export async function login(req, res) {
@@ -27,7 +28,8 @@ export async function login(req, res) {
         .then(response => response.json())
         .then(data => {
             if (data.message){
-                res.render('../public/ejs/main/login',{ fail:false })
+                res.render('../public/ejs/main/login',
+                { fail:false,okjoin:true })
             }else{
             console.log(data);
             TokenStorage.saveToken(data.token)
