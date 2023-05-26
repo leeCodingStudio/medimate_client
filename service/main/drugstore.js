@@ -11,7 +11,6 @@ export async function showAll(req, res) {
     fetch(url)
         .then(response => response.json())
         .then(pharmList => {
-            console.log(pharmList);
             res.render('../public/ejs/main/drugstore', { list: pharmList.rows, count: pharmList.count })
         });
 }

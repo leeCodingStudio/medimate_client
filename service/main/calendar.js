@@ -9,15 +9,29 @@ export async function showAll(req, res){
 
     fetch(url, {headers: getHeaders()})
     .then(response => response.json())
-    .then(datas => {
-        datas.forEach((data) => {
+    .then(datas=> {
+        if(datas.message){
+            res.render('../public/ejs/main/index',{fail:false,goodbye:true })
+        }else{ 
+            datas.forEach((data) => {
             data.title = data.C_TITLE;
             data.start = data.C_START.substr(0, 10);
             data.end = data.C_END ? data.C_END.substr(0, 10) : '';
             console.log(data);
         })
         res.render('../public/ejs/main/calendar', {datas})
+
+        }
     })
+    // .then(datas => {
+    //     datas.forEach((data) => {
+    //         data.title = data.C_TITLE;
+    //         data.start = data.C_START.substr(0, 10);
+    //         data.end = data.C_END ? data.C_END.substr(0, 10) : '';
+    //         console.log(data);
+    //     })
+    //     res.render('../public/ejs/main/calendar', {datas})
+    // })
 }
 
 export async function create(req, res){

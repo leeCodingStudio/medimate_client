@@ -107,7 +107,7 @@ header li {
 .box {
     text-align: right;
     width: 40rem;
-    height: 40rem;
+    height: 55rem;
     margin: 3rem auto;
     flex-direction: column;    /* 내부 요소들 가운데에 정렬하기 */
     justify-content: center;

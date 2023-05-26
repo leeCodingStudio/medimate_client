@@ -11,15 +11,22 @@
 </head>
 
 <body>
+    <% if(!goodbye){ %>
+        <script>alert('그동안 감사했습니다.')</script>
+        <% }else if(!fail){ %>
+            <script>alert('로그인이 필요합니다.')</script>
+    <% }else if(!admin){ %>
+        <script>alert('로그인이 필요합니다.')</script>
+        <% } %>
     <!-- 헤더 -->
     <header>
         <div class="header-logo">
-            <h1><a style="text-decoration: none;" href="./index.html">MEDIMATE</a></h1>
+            <h1><a style="text-decoration: none;" href="/main/index">MEDIMATE</a></h1>
             <div class="header-state">
                 <ul>
                     <li><a style="text-decoration: none;" href="/main/login">로그인</a></li>
                     <li><a style="text-decoration: none;" href="/main/join">회원가입</a></li>
-                    <li><a style="text-decoration: none;" href="/main/mypage">마이페이지</a></li>
+                    <li><a style="text-decoration: none;" href="/main/mypage/info">마이페이지</a></li>
                     <li><a style="text-decoration: none;" href="/admin/user">관리자페이지</a></li>
                 </ul>
             </div>
