@@ -8,6 +8,7 @@ import drugstoreRouter from './drugstore.js';
 import announcementRouter from './announcement.js';
 import findRouter from './find.js';
 import joinRouter from './join.js';
+import logoutRouter from './logout.js';
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.use('/medicine', medicineRouter);
 router.use('/calendar', calendarRouter);
 router.use('/announcement', announcementRouter)
 router.use('/find', findRouter)
+router.use('/logout', logoutRouter)
 
 export default router;

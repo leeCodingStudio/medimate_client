@@ -1,8 +1,9 @@
 import { config } from '../../config.js';
 import { emailPost } from '../../middleware/email.js';
+import * as TokenStorage from '../../token.js'
 
 export async function showAll(req, res){
-    res.render('../public/ejs/main/findId')
+    res.render('../public/ejs/main/findId', {U_ID:false, tokenCheck:false})
 }
 
 export async function findId(req, res){
@@ -22,7 +23,7 @@ export async function findId(req, res){
         if(U_ID){
             emailPost(U_EMAIL, `아이디는 ${U_ID} 입니다.`);
         }
-        res.render('../public/ejs/main/findId', { U_ID });
+        res.render('../public/ejs/main/findId', { U_ID, tokenCheck:false });
     });
 }
 
@@ -44,7 +45,7 @@ export async function findPw(req, res){
         if(U_ID){
             emailPost(U_EMAIL, `임시 비밀번호는 ${U_PW} 입니다.`);
         }
-        res.render('../public/ejs/main/findId', { U_ID });
+        res.render('../public/ejs/main/findId', { U_ID, tokenCheck:false });
     });
 
     

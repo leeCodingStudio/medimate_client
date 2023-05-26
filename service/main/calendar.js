@@ -10,8 +10,9 @@ export async function showAll(req, res){
     fetch(url, {headers: getHeaders()})
     .then(response => response.json())
     .then(datas=> {
+        const tokenCheck = TokenStorage.getToken() ? true : false;
         if(datas.message){
-            res.render('../public/ejs/main/index',{fail:false,goodbye:true })
+            res.render('../public/ejs/main/index',{fail:false,goodbye:true,tokenCheck })
         }else{ 
             datas.forEach((data) => {
             data.title = data.C_TITLE;
@@ -19,7 +20,7 @@ export async function showAll(req, res){
             data.end = data.C_END ? data.C_END.substr(0, 10) : '';
             console.log(data);
         })
-        res.render('../public/ejs/main/calendar', {datas})
+        res.render('../public/ejs/main/calendar', {datas,tokenCheck})
 
         }
     })

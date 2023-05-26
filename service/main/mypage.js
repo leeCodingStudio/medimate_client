@@ -6,10 +6,11 @@ export async function show(req, res) {
     fetch(config.base + '/main/mypage/info',{headers: getHeaders()})
     .then(response => response.json())
     .then(userlist => {
+        const tokenCheck = TokenStorage.getToken() ? true : false;
         if(userlist.message){
-            res.render('../public/ejs/main/index',{userlist,fail:false,goodbye:true})
+            res.render('../public/ejs/main/index',{userlist,fail:false,goodbye:true,tokenCheck})
         }else{
-            res.render('../public/ejs/main/mypageInfo',{userlist,fail:true,goodbye:true,admin:true})
+            res.render('../public/ejs/main/mypageInfo',{userlist,fail:true,goodbye:true,admin:true,tokenCheck})
         }
     })
 }

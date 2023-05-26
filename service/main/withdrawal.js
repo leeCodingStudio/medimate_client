@@ -4,7 +4,8 @@ import * as TokenStorage from '../../token.js'
 
 
 export async function show(req, res) {
-    res.render('../public/ejs/main/mypageWithdrawal',{flag: false,success:false});
+    const tokenCheck = TokenStorage.getToken() ? true : false;
+    res.render('../public/ejs/main/mypageWithdrawal',{flag: false,success:false, tokenCheck});
 }
 
 export async function Delete(req,res){
@@ -12,7 +13,7 @@ export async function Delete(req,res){
     {method: 'DELETE',headers: getHeaders()})
     .then(response => response.json())
     .then(goodbyeHeaders())
-    .then(res.render('../public/ejs/main/index',{goodbye:false,false:true}))
+    .then(res.render('../public/ejs/main/index',{goodbye:false,false:true,tokenCheck:false}))
 }
 
 

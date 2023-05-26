@@ -24,7 +24,7 @@ export async function showAll(req, res){
 //============ 약품등록 ============
 export async function insertDrug(req, res){
     const {M_NUM, M_NAME, M_CORP, M_TYPE, M_SHAPE, M_MARK_FRONT, M_MARK_BACK, M_COLOR_FRONT, M_COLOR_BACK, M_CHARACTER, M_AXIS_LONG, M_AXIS_SHORT, M_THICKNESS} = req.body; // 새로 등록할 약품 정보 바디에서 가져오기
-    const M_IMAGE = `/img/${req.file.filename}`
+    const M_IMAGE = req.file ? `/img/${req.file.filename}` : ''
 
     const newDrug = {M_NUM, M_NAME, M_CORP, M_TYPE, M_SHAPE, M_MARK_FRONT, M_MARK_BACK, M_COLOR_FRONT, M_COLOR_BACK, M_CHARACTER, M_AXIS_LONG, M_AXIS_SHORT, M_THICKNESS, M_IMAGE }
     fetch(config.base+'/admin/medicine', {
@@ -44,7 +44,7 @@ export async function insertDrug(req, res){
 //=========== 약품수정 =============
 export async function updateDrug(req, res){
     const { M_NUM, M_NAME, M_CORP, M_TYPE, M_SHAPE, M_MARK_FRONT, M_MARK_BACK, M_COLOR_FRONT, M_COLOR_BACK, M_CHARACTER, M_AXIS_LONG, M_AXIS_SHORT, M_THICKNESS } = req.body; // 수정할 약품 정보 바디에서 가져오기
-    const M_IMAGE = `/img/${req.file.filename}`
+    const M_IMAGE = req.file ? `/img/${req.file.filename}` : ''
     const updatedDrug = { M_NUM, M_NAME, M_CORP, M_TYPE, M_SHAPE, M_MARK_FRONT, M_MARK_BACK, M_COLOR_FRONT, M_COLOR_BACK, M_CHARACTER, M_AXIS_LONG, M_AXIS_SHORT, M_THICKNESS, M_IMAGE };
     
     fetch(config.base + '/admin/medicine/' + M_NUM, {

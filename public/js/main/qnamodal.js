@@ -12,3 +12,11 @@ function modal3(data) {
 }
 
 //왼쪽은 ejs 파일에 id값  | 오른쪽은 qna데이터에 Q_TITLE
+
+
+
+// 페이지네이션 + 검색
+const pageIpt = document.getElementById('page');
+function page(page){
+    location.href=`/main/mypage/qna?page=${page}`
+}

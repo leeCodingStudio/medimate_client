@@ -1,5 +1,6 @@
 import { response } from 'express';
 import { config } from '../../config.js';
+import * as TokenStorage from '../../token.js'
 
 
 export async function showAll(req, res){
@@ -12,7 +13,8 @@ export async function showAll(req, res){
     fetch(url)
     .then(response => response.json())
     .then(datas => {
-        res.render('../public/ejs/main/announcement', { datas });
+        const tokenCheck = TokenStorage.getToken() ? true : false;
+        res.render('../public/ejs/main/announcement', { datas, tokenCheck });
     });
 }
 
@@ -23,6 +25,8 @@ export async function showOne(req, res){
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            const tokenCheck = TokenStorage.getToken() ? true : false;
+            data.tokenCheck = tokenCheck
             res.render('../public/ejs/main/announcement-content', data );
         });
 }

@@ -31,3 +31,11 @@ function modal2(data2) {
     M_IMAGE.src = data.M_IMAGE;
 
 }
+
+// 페이지네이션 + 검색
+const pageIpt = document.getElementById('page');
+const search = document.getElementById('search');
+function page(page){
+    pageIpt.value = page;
+    search.submit();
+}
