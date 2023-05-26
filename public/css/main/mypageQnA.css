@@ -19,13 +19,19 @@ li {
 }
 
 header {
-    width: 100%;
-    padding: 5px 100px;
-    box-sizing: border-box;
+    width: 90%;
+    height: 80px;
+    border: 0;
+    box-shadow: 2px 3px 5px 0 rgb(196, 191, 191);
+    border-radius: 30px;
+    margin: 25px auto;
+    padding: 5px 30px;
     display: flex;
+    position: relative;
     justify-content: space-between;
-    box-shadow: 0 0 5px 0 rgb(155, 155, 155);
-    z-index: 100;
+    left: 0;
+    right: 0;
+    font-weight: 200;
 }
 
 
@@ -88,7 +94,7 @@ width: 100%;
 padding: 10px;
 }
 .sidebar-left-list button {
-font-family: "medimate";  
+font-family: 'bitbit';
 position: relative;
 right: 10px;
 width: 80%;

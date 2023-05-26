@@ -60,20 +60,22 @@
                 <option value="중랑구">중랑구</option>
             </select>
             <input placeholder="이름 검색" name="P_NAME" id="pharm_search">
-            <button>검색하기</button>
+            <button>검색</button>
     </form>
     </div>
     <div class="search_container">
         <div class="classification">
-            <h3> 약국이름 |   지역   | 영업시간</h3>
+            <div> 약국이름 </div>
+            <div> 지역 </div>
+            <div> 영업시간 </div>
         </div>
+        <hr>
+        <br>
         <% list.forEach(data=> { %>
             <div class="drug-info" onclick="modal('<%= JSON.stringify(data)%>')">
-                <p class="column">
-                <%= data.P_NAME %> |
-                <%= data.P_ADDRESS %> |
-                0<%= data.P_MON_S %> ~ <%= data.P_MON_C %>
-                </p>
+                    <div><%= data.P_NAME %> </div> 
+                    <div><%= data.P_ADDRESS %>  </div>
+                    <div><%= data.P_MON_S %> ~ <%= data.P_MON_C %></div>
             </div>
             <% }) %>
     </div>
@@ -96,7 +98,7 @@
     <div id="modal-info" class="modal">
         <div class="modal_body">
             <div class="modal_header close_button"><img src="/img/close_cursor.png" alt="닫기버튼"
-                    style="width:30px; height: 30px;">
+                    style="width:40px; height: 40px;">
             </div>
             <div class="modal_container">
                 <div id="map"></div>
@@ -128,21 +130,23 @@
                     </ul>
                 </div>
                 <div class="modal_body4">
-                    <p><input type="text" name="P_MON_S" id="modalPmons"> ~ <input type="text" name="P_MON_C"
-                            id="modalPmonc"></p>
-                    <p><input type="text" name="P_TUE_S" id="modalPtues"> ~ <input type="text" name="P_TUE_C"
-                            id="modalPtuec"></p>
-                    <p><input type="text" name="P_WED_S" id="modalPweds"> ~ <input type="text" name="P_WED_C"
-                            id="modalPwedc"></p>
-                    <p><input type="text" name="P_THU_S" id="modalPthus"> ~ <input type="text" name="P_THU_C"
+                    <p><input class="day_data" type="text" name="P_MON_S" id="modalPmons"> ~ <input class="day_data" type="text" name="P_MON_C"id="modalPmonc"></p>
+
+                    <p><input class="day_data" type="text" name="P_TUE_S" id="modalPtues"> ~ <input class="day_data" type="text" name="P_TUE_C"id="modalPtuec"></p>
+
+                    <p><input class="day_data" type="text" name="P_WED_S" id="modalPweds"> ~ <input class="day_data" type="text" name="P_WED_C"id="modalPwedc"></p>
+
+                    <p><input class="day_data" type="text" name="P_THU_S" id="modalPthus"> ~ <input class="day_data" type="text" name="P_THU_C"
                             id="modalPthuc"></p>
-                    <p><input type="text" name="P_FRI_S" id="modalPfris"> ~ <input type="text" name="P_FRI_C"
+
+                    <p><input class="day_data" type="text" name="P_FRI_S" id="modalPfris"> ~ <input class="day_data" type="text" name="P_FRI_C"
                             id="modalPfric"></p>
-                    <p><input type="text" name="P_SAT_S" id="modalPsats"> ~ <input type="text" name="P_SAT_C"
+
+                    <p><input class="day_data" type="text" name="P_SAT_S" id="modalPsats"> ~ <input class="day_data" type="text" name="P_SAT_C"
                             id="modalPsatc"></p>
-                    <p><input type="text" name="P_SUN_S" id="modalPsuns"> ~ <input type="text" name="P_SUN_C"
+                    <p><input class="day_data" type="text" name="P_SUN_S" id="modalPsuns"> ~ <input class="day_data" type="text" name="P_SUN_C"
                             id="modalPsunc"></p>
-                    <p><input type="text" name="P_HOLI_S" id="modalPholis"> ~ <input type="text" name="P_HOLI_C"
+                    <p><input class="day_data" type="text" name="P_HOLI_S" id="modalPholis"> ~ <input class="day_data" type="text" name="P_HOLI_C"
                             id="modalPholic"></p>
                 </div>
             </div>

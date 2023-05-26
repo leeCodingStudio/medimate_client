@@ -7,6 +7,27 @@
     font-family: 'bitbit';
 }
 
+input {
+    border: none;
+    font-size: 16px;
+}
+
+.modal_body4 p input {
+    border:none;
+    font-size: 23px;
+}
+
+li {
+    list-style: none;
+}
+
+span {
+    width: 10%;
+}
+
+div {
+    margin-bottom: 1rem;
+}
 
 /* 헤더 */
 header {
@@ -79,8 +100,11 @@ header li {
     background-color: darkgrey;
     border-radius: 5px;
     font-size: 1.6rem;
-    width: 100%;
-    margin-top: 0.4rem;
+    width: 80%;
+    margin: 3rem auto;
+    align-items: center;
+    box-shadow: 2px 3px 5px 0 rgb(196, 191, 191);
+    border-radius: 15px;
 }
 
 .search_pharm select, .search_pharm input{
@@ -88,7 +112,7 @@ header li {
     height: 44px;
     margin-left: 8px;
     padding: 0 35px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: black;
     vertical-align: middle;
     border-radius: 3px;
@@ -104,7 +128,7 @@ header li {
     height: 44px;
     margin-left: 8px;
     padding: 0 35px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     background-color: #495f74;
     color: #fff;
     vertical-align: middle;
@@ -124,19 +148,21 @@ header li {
 }
 
 .search_container{
-    width: 60rem;
-    margin-left: 10rem;
-    display: inline-block;
+    position: flex;
+    width: 100rem;
+    margin: 0 auto;
 }
 
 
+
 .classification{    
-    margin-left: 3rem;
-    width: 100%;
+    font-size: 2rem;
+    width: 100rem;
     text-align: center;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    
+
 }
 .classification h3{    
     word-spacing: 4rem;
@@ -144,8 +170,9 @@ header li {
 .column{
     line-height: 0.7rem;
     cursor: pointer;
-    display: inline-block;
     margin-right: 4rem;
+    justify-content: space-between;
+    display: flex;
 }
 .column p{
     text-align: left;
@@ -156,8 +183,9 @@ header li {
 }
 
 .drug-info {
-    margin-left: 17rem;
-    text-align: left;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
 }
 .column1{
     border-bottom: 2px solid black;
@@ -166,10 +194,8 @@ header li {
 /* 페이지네이션 */
 
 .paging {
-    position: relative;
-    top: -3rem;
-    left: 25rem;
     font-size: 14px;
+    padding: 2rem;
 }
 
 .paging ul {
@@ -199,3 +225,14 @@ header li {
     background-color: #333f50;
     color: white;
 }
+
+
+/*모달*/
+
+.day_data {
+    width: 10rem;
+    text-align: center;
+}
+
+
+
