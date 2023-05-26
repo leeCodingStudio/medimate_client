@@ -1,14 +1,20 @@
-@font-face{
-    font-family:'bitbit';
-    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+/* 폰트 */
+@font-face {
+    font-family: 'bitbit';
+    src: url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'), url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2');
 }
 
-*{
+
+* {
     font-family: 'bitbit';
 }
 
+/* 바디 */
+body {
+    margin: 0;
+    font-family: "bitbit";
+}
 
-/* 헤더 */
 header {
     width: 90%;
     height: 80px;
@@ -46,6 +52,7 @@ header li {
 
 /* 리스트 */
 .header-nav {
+    text-decoration: none;
     font-size: 24px;
 }
 
@@ -54,17 +61,48 @@ header li {
 }
 
 
+/* 로고  a태그 */
+.logo-a {
+    color: #53d36b;
+    font-size: 32px;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-a:hover {
+    color: #53d36b;
+    text-decoration: none;
+}
+
 /* 로그인/회원가입 */
 .header-state li {
     font-size: 18px;
     margin: 0 5px;
 }
 
+/* 로그인 회원가입 a태그들 */
+.st:link {
+    color: #000;
+    text-decoration: none;
+}
+
+.st:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.st:hover {
+    color: #69f082;
+}
+
 
 
 /*검색 헤더 */
 
-.search_pharm{
+/*검색 헤더 */
+
+.search_drug {
     position: flex;
     flex-wrap: nowrap;
     height: 3.8rem;
@@ -79,13 +117,14 @@ header li {
     border-radius: 5px;
     font-size: 1.6rem;
     width: 80%;
-    margin: 5rem auto;
+    margin: 3rem auto;
     align-items: center;
     box-shadow: 2px 3px 5px 0 rgb(196, 191, 191);
     border-radius: 15px;
 }
 
-.search_pharm select, .search_pharm input{
+.search_drug select,
+.search_drug input {
     display: inline-block;
     height: 44px;
     margin-left: 8px;
@@ -100,8 +139,7 @@ header li {
     cursor: pointer;
 }
 
-
-.search_pharm > button{
+.search_drug>button {
     display: inline-block;
     height: 44px;
     margin-left: 8px;
@@ -118,114 +156,109 @@ header li {
 }
 
 /*검색 창 */
-
-
-.map {
-    width: 1000px;
-    height: 800px;
-    margin: 5% auto;
-
-}
-
-
-.search_container{
-    position: flex;
-    flex-wrap: nowrap;
-    display: inline-block;
+.abc {
+    margin-left: 8rem;
+    align-items: center;
     justify-content: center;
-    margin-left: 7px;
-}
-
-
-.classification{
     display: inline-block;
-    position: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    
-}
+    flex-direction: row;
 
-.classification > h3{
-    display: inline-block;
-    margin-right: 4rem;
 }
-
-.column{
-    display: inline-block;
-    margin-right: 4rem;
-}
-
-.data{
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+.drug-info {
+    padding: 0.5rem;
+    border: 1px solid #53d36b;
+    width: 11rem;
     cursor: pointer;
+    color: #53d36b;
+    margin: 1rem;
+    flex: auto;
+    font-size: 0.3rem;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-
-.paging {
+.abc p {
+    width: 10rem;
     text-align: center;
+    margin-left: 1.4rem;
 }
 
-.paging li{
-    display: inline-block;
-    min-width: 27px;
-    height: 55px;
-    font-size: 1rem;
-    line-height: 55px;
-    color: grey;
-    vertical-align: top;
-    text-decoration: none;
-}
-
-.next-paging{
-    border: 1px solid navy;
-    border-radius: 50%;
+.abc img {
+    width: 11rem;
+    height: 10rem;
 }
 
 
-/*모달창*/
 
+
+.btn_detail>button {
+    color: white;
+    background-color: #53d36b;
+}
+
+.btn_detail2 {
+    color: white;
+    background-color: #53d36b;
+}
+
+/* 모달창 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* 맨아래 버튼 */
 .modal {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: none;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 300;
 }
-
 .modal.show {
     display: block;
 }
-
-/*모달 창 전체 */
-.modal_body {
+.modal_body2 p {
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .modal_body {
     position: absolute;
     top: 50%;
     left: 50%;
-
-    width: 400px;
-    height: 600px;
-
     padding: 40px;
-
-    text-align: center;
-
-    background-color: rgb(255, 255, 255);
+    background-color:hotpink;
     border-radius: 10px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-
-    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+} */
+.modal_container {
+    border: 2px solid #53d36b;
+    border-radius: 30px;
+    padding: 3rem;
+    width: 40rem; 
+    height: 25rem;
+    display: flex;
+    background-color: white;
+    flex-direction: row;
+    margin-left: 0 1rem;
+    font-size: 0.6rem;
 }
 
+.content_title {
+    margin-left: 5rem;
+    width: 4rem;
+    font-size: 1rem;
+}
+    
 /*닫기 버튼*/
-.modal_header{
-    width: 400px;
-    height: 50px;
-    text-align: end;
+
+.close-button {
+    width: 1.5rem;
+    height: 1.5rem;
     cursor: pointer;
+    margin-left: 1rem;
 }
 
 .modal_container{
@@ -234,66 +267,63 @@ header li {
 }
 
 .modal_body1, .modal_body2, .modal_body3, .modal_body4{
-    width: 200px;
-    height:300px ;
+    width: 100%;
+    height:100%;
     margin: 0;
 }
 
-.modal_body1 li, .modal_body2 li{
-    font-size: 30px;
-    margin-bottom: 3rem ;
-    list-style: none;
+.modal_img img{
+    width: 18rem;
+    height: 23rem;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
-.modal_body1 li, .modal_body3 li{
-    text-align: left;
-    font-size: 30px;
-    margin-bottom: 3rem ;
-    list-style: none;
+/* 페이지 이동 버튼 */
+.page-wrap {
+    margin-top: 3rem;
+    text-align: center;
 }
-
-
-.modal_body2 li ,.modal_body4 li{
-    text-align: right;
-    font-size: 20px;
-    margin-bottom: 3rem ;
-    list-style: none;
-}
-
-.modal_body2 {
-    text-align: right;
-    font-size: 20px;
-    margin-bottom: 3rem ;
-    list-style: none;
-}
-
-.modal_body3 li, .modal_body4 li{
-    font-size: 20px;
-    margin-bottom: 1rem ;
-}
-
-
-/*페이징*/
 
 .pagination {
+    position: relative;
+    top: 51rem;
     font-size: 14px;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, -50%);
 }
 
-.pagination ul{
+.pagination ul {
     justify-content: center;
     height: 50px;
     line-height: 50px;
-    display:flex;
+    display: flex;
     flex-direction: row;
     text-decoration: none;
 }
 
-.pagination li{
+.pagination li {
     list-style: none;
     margin-right: 10px;
     width: 25px;
@@ -306,7 +336,8 @@ header li {
     box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
 }
 
-.pagination li:hover, .pagination li.active{
+.pagination li:hover,
+.pagination li.active {
     background-color: #333f50;
     color: white;
 }

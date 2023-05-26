@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약국 검색 메인</title>
+    <link rel="stylesheet" href="/css/main/drugstore.css">
+    <link rel="stylesheet" href="/css/main/drugstore_modal.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <h1>MEDIMATE</h1>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li class="header-pharm">약국</li>
+                <li class="header-medicine">약</li>
+                <li class="header-calendar">캘린더</li>
+                <li class="header-announcement">공지사항</li>
+            </ul>
+        </nav>
+        <div class="header-state">
+            <ul>
+                <li class="header-login">로그인</li>
+                <li class="header-join">회원가입</li>
+            </ul>
+        </div>
+    </header>
+    <form action="/main/drugstore" method="get" class="search">
+        <div class="search_pharm">
+            <select name="P_ADDRESS" id="P_ADDRESS">
+                <option value="강남구">강남구</option>
+                <option value="강서구">강서구</option>
+                <option value="강동구">강동구</option>
+                <option value="강북구">강북구</option>
+                <option value="관악구">관악구</option>
+                <option value="광진구">광진구</option>
+                <option value="구로구">구로구</option>
+                <option value="금천구">금천구</option>
+                <option value="노원구">노원구</option>
+                <option value="도봉구">도봉구</option>
+                <option value="동대문구">동대문구</option>
+                <option value="동작구">동작구</option>
+                <option value="마포구">마포구</option>
+                <option value="서대문구">서대문구</option>
+                <option value="서초구">서초구</option>
+                <option value="성동구">성동구</option>
+                <option value="성북구">성북구</option>
+                <option value="송파구">송파구</option>
+                <option value="양천구">양천구</option>
+                <option value="영등포구">영등포구</option>
+                <option value="용산구">용산구</option>
+                <option value="은평구">은평구</option>
+                <option value="종로구">종로구</option>
+                <option value="중구">중구</option>
+                <option value="중랑구">중랑구</option>
+            </select>
+            <input placeholder="이름 검색" name="P_NAME" id="pharm_search">
+            <button>검색하기</button>
+    </form>
+    </div>
+    <div class="search_container">
+        <div class="classification">
+            <h3> 약국이름 |   지역   | 영업시간</h3>
+        </div>
+        <% list.forEach(data=> { %>
+            <div class="drug-info" onclick="modal('<%= JSON.stringify(data)%>')">
+                <p class="column">
+                <%= data.P_NAME %> |
+                <%= data.P_ADDRESS %> |
+                0<%= data.P_MON_S %> ~ <%= data.P_MON_C %>
+                </p>
+            </div>
+            <% }) %>
+    </div>
+
+    <div class="paging">
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li class="next-paging">></li>
+    </ul>
+        <br>
+        <br>
+    </div>
+    </div>
+
+    <!--모달창 html 기본 display:none-->
+    <div id="modal-info" class="modal">
+        <div class="modal_body">
+            <div class="modal_header close_button"><img src="/img/close_cursor.png" alt="닫기버튼"
+                    style="width:30px; height: 30px;">
+            </div>
+            <div class="modal_container">
+                <div id="map"></div>
+                <div class="modal_body1">
+                    <li>약국번호 :</li>
+                    <li>약국명 :</li>
+                    <li>주소 :</li>
+                    <li>대표 전화 :</li>
+                </div>
+
+                <div class="modal_body2">
+                    <li><input type="text" id="modalPnum" name="P_NUM"></li>
+                    <li><input type="text" id="modalPname" name="P_NAME"></li>
+                    <li><input type="text" id="modalPaddress" name="P_ADDRESS"></li>
+                    <li><input type="text" id="modalPphone" name="P_PHONE"></li>
+                </div>
+            </div>
+            <div class="modal_container">
+                <div class="modal_body3">
+                    <ul>
+                        <li>월요일 : </li>
+                        <li>화요일 : </li>
+                        <li>수요일 : </li>
+                        <li>목요일 : </li>
+                        <li>금요일 : </li>
+                        <li>토요일 : </li>
+                        <li>일요일 : </li>
+                        <li>공휴일 : </li>
+                    </ul>
+                </div>
+                <div class="modal_body4">
+                    <p><input type="text" name="P_MON_S" id="modalPmons"> ~ <input type="text" name="P_MON_C"
+                            id="modalPmonc"></p>
+                    <p><input type="text" name="P_TUE_S" id="modalPtues"> ~ <input type="text" name="P_TUE_C"
+                            id="modalPtuec"></p>
+                    <p><input type="text" name="P_WED_S" id="modalPweds"> ~ <input type="text" name="P_WED_C"
+                            id="modalPwedc"></p>
+                    <p><input type="text" name="P_THU_S" id="modalPthus"> ~ <input type="text" name="P_THU_C"
+                            id="modalPthuc"></p>
+                    <p><input type="text" name="P_FRI_S" id="modalPfris"> ~ <input type="text" name="P_FRI_C"
+                            id="modalPfric"></p>
+                    <p><input type="text" name="P_SAT_S" id="modalPsats"> ~ <input type="text" name="P_SAT_C"
+                            id="modalPsatc"></p>
+                    <p><input type="text" name="P_SUN_S" id="modalPsuns"> ~ <input type="text" name="P_SUN_C"
+                            id="modalPsunc"></p>
+                    <p><input type="text" name="P_HOLI_S" id="modalPholis"> ~ <input type="text" name="P_HOLI_C"
+                            id="modalPholic"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c531d4938c9e9be44937acdc74c9589"></script>
+    <script src="/js/main/header.js"></script>
+    <script src="/js/main/drugDetail.js"></script>
+</body>
+</html>
