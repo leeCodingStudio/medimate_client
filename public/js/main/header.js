@@ -17,7 +17,7 @@ headerMedicine.addEventListener(('click'), () => {
     location.href="/main/medicine";
 });
 headerCalendar.addEventListener(('click'), () => {
-    location.href="/main/calender";
+    location.href="/main/calendar";
 });
 headerAnnouncement.addEventListener(('click'), () => {
     location.href="/main/announcement";
