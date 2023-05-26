@@ -21,24 +21,6 @@ const P_SUN_C = document.getElementById('modalPsunc')
 const P_HOLI_S = document.getElementById('modalPholis')
 const P_HOLI_C = document.getElementById('modalPholic')
 
-// const infoBtn = document.querySelectorAll(".drug-info");
-// const modalInfo = document.getElementById('modal-info');
-// infoBtn.forEach((v) => {
-//     v.addEventListener('click',() => {
-//         modalInfo.classList.add('active');
-//     });
-// });
-
-// // const modal = document.querySelector(".modal");
-// const btnCloseModal = document.querySelector(".close_button");
-// const modalClose = document.querySelectorAll(".close_button");
-// modalClose.forEach((v) => {
-//     v.addEventListener('click', () => {
-//         modalInfo.classList.remove('active');
-//         modalWrite.classList.remove('active');
-//     });
-// }); 
-
     const infoBtn = document.querySelectorAll(".drug-info");
     const modalInfo = document.getElementById('modal-info');
     const btnCloseModal = document.querySelector(".close_button");
@@ -115,12 +97,10 @@ function modal(data2) {
 };
 
 
-
-
-
-
-function relayout() {
-    map.relayout();
-    map.setCenter()
-    map.setLevel()
+// 페이지네이션 + 검색
+const pageIpt = document.getElementById('page');
+const search = document.getElementById('search');
+function page(page){
+    pageIpt.value = page;
+    search.submit();
 }

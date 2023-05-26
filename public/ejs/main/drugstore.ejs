@@ -30,36 +30,38 @@
             </ul>
         </div>
     </header>
-    <form action="/main/drugstore" method="get" class="search">
+    <form action="/main/drugstore" method="get" class="search" id="search">
+        <input type="hidden" name="page" id="page">
         <div class="search_pharm">
             <select name="P_ADDRESS" id="P_ADDRESS">
-                <option value="강남구">강남구</option>
-                <option value="강서구">강서구</option>
-                <option value="강동구">강동구</option>
-                <option value="강북구">강북구</option>
-                <option value="관악구">관악구</option>
-                <option value="광진구">광진구</option>
-                <option value="구로구">구로구</option>
-                <option value="금천구">금천구</option>
-                <option value="노원구">노원구</option>
-                <option value="도봉구">도봉구</option>
-                <option value="동대문구">동대문구</option>
-                <option value="동작구">동작구</option>
-                <option value="마포구">마포구</option>
-                <option value="서대문구">서대문구</option>
-                <option value="서초구">서초구</option>
-                <option value="성동구">성동구</option>
-                <option value="성북구">성북구</option>
-                <option value="송파구">송파구</option>
-                <option value="양천구">양천구</option>
-                <option value="영등포구">영등포구</option>
-                <option value="용산구">용산구</option>
-                <option value="은평구">은평구</option>
-                <option value="종로구">종로구</option>
-                <option value="중구">중구</option>
-                <option value="중랑구">중랑구</option>
+                
+                <option value="강남구" <%= P_ADDRESS === '강남구' ? 'selected' : '' %>>강남구</option>
+                <option value="강서구" <%= P_ADDRESS === '강서구' ? 'selected' : '' %>>강서구</option>
+                <option value="강동구" <%= P_ADDRESS === '강동구' ? 'selected' : '' %>>강동구</option>
+                <option value="강북구" <%= P_ADDRESS === '강북구' ? 'selected' : '' %>>강북구</option>
+                <option value="관악구" <%= P_ADDRESS === '관악구' ? 'selected' : '' %>>관악구</option>
+                <option value="광진구" <%= P_ADDRESS === '광진구' ? 'selected' : '' %>>광진구</option>
+                <option value="구로구" <%= P_ADDRESS === '구로구' ? 'selected' : '' %>>구로구</option>
+                <option value="금천구" <%= P_ADDRESS === '금천구' ? 'selected' : '' %>>금천구</option>
+                <option value="노원구" <%= P_ADDRESS === '노원구' ? 'selected' : '' %>>노원구</option>
+                <option value="도봉구" <%= P_ADDRESS === '도봉구' ? 'selected' : '' %>>도봉구</option>
+                <option value="동대문구" <%= P_ADDRESS === '동대문구' ? 'selected' : '' %>>동대문구</option>
+                <option value="동작구" <%= P_ADDRESS === '동작구' ? 'selected' : '' %>>동작구</option>
+                <option value="마포구" <%= P_ADDRESS === '마포구' ? 'selected' : '' %>>마포구</option>
+                <option value="서대문구" <%= P_ADDRESS === '서대문구' ? 'selected' : '' %>>서대문구</option>
+                <option value="서초구" <%= P_ADDRESS === '서초구' ? 'selected' : '' %>>서초구</option>
+                <option value="성동구" <%= P_ADDRESS === '성동구' ? 'selected' : '' %>>성동구</option>
+                <option value="성북구" <%= P_ADDRESS === '성북구' ? 'selected' : '' %>>성북구</option>
+                <option value="송파구" <%= P_ADDRESS === '송파구' ? 'selected' : '' %>>송파구</option>
+                <option value="양천구" <%= P_ADDRESS === '양천구' ? 'selected' : '' %>>양천구</option>
+                <option value="영등포구" <%= P_ADDRESS === '영등포구' ? 'selected' : '' %>>영등포구</option>
+                <option value="용산구" <%= P_ADDRESS === '용산구' ? 'selected' : '' %>>용산구</option>
+                <option value="은평구" <%= P_ADDRESS === '은평구' ? 'selected' : '' %>>은평구</option>
+                <option value="종로구" <%= P_ADDRESS === '종로구' ? 'selected' : '' %>>종로구</option>
+                <option value="중구" <%= P_ADDRESS === '중구' ? 'selected' : '' %>>중구</option>
+                <option value="중랑구" <%= P_ADDRESS === '중랑구' ? 'selected' : '' %>>중랑구</option>
             </select>
-            <input placeholder="이름 검색" name="P_NAME" id="pharm_search">
+            <input placeholder="이름 검색" name="P_NAME" id="pharm_search" value="<%= P_NAME %>">
             <button>검색하기</button>
     </form>
     </div>
@@ -80,12 +82,20 @@
 
     <div class="paging">
         <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li class="next-paging">></li>
+            <% if (page > 1) { %>
+                <li onclick="page('<%= page - 1 %>')"><</li>
+            <% } %>
+            
+            <% for (let i = startPage; i <= endPage; i++) { %>
+            <% if (page==i) { %>
+                <li class="active"><%= i %></li>
+            <% } else { %>
+                <li onclick="page('<%= i %>')"><%= i %></li>
+            <% } %>
+            <% } %>
+            <% if (page < totalPages) { %>
+                <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+            <% } %>
     </ul>
         <br>
         <br>
