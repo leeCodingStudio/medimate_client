@@ -13,6 +13,12 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//첫 페이지 설정
+app.get('',(req,res)=>{
+    res.redirect('/main/index')
+})
+
+
 app.use('/admin', adminRouter);
 app.use('/main', mainRouter);
 
