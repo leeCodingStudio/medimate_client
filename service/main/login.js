@@ -10,7 +10,7 @@ export async function showAll(req, res) {
         .then(response => response.json())
         .then(res => console.log(res))
         .then(res.render('../public/ejs/main/login',
-        { fail:true, okjoin:true}));
+        { fail:true, okjoin:true, tokenCheck:false}));
 }
 
 export async function login(req, res) {

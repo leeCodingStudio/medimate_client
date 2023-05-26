@@ -1,7 +1,6 @@
 const M_NUM = document.getElementById('modalMnum')
 const M_NAME = document.getElementById('modalMname')
 const M_CORP = document.getElementById('modalMcorp')
-const M_TYPE = document.getElementById('modalMtype')
 const M_SHAPE = document.getElementById('modalMshape')
 const M_MARK_FRONT = document.getElementById('modalMmarkfront')
 const M_MARK_BACK = document.getElementById('modalMmarkback')
@@ -12,13 +11,14 @@ const M_AXIS_LONG = document.getElementById('modalMaxislong')
 const M_AXIS_SHORT = document.getElementById('modalMaxisshort')
 const M_THICKNESS = document.getElementById('modalMthickness')
 const M_IMAGE = document.getElementById('modalMimage')
+const radio1 = document.getElementById('radio1')
+const radio2 = document.getElementById('radio2')
 
 function modal(data2) {
     const data = JSON.parse(data2);
     M_NUM.value = data.M_NUM;
     M_NAME.value = data.M_NAME;
     M_CORP.value = data.M_CORP;
-    M_TYPE.value = data.M_TYPE;
     M_SHAPE.value = data.M_SHAPE;
     M_MARK_FRONT.value = data.M_MARK_FRONT;
     M_MARK_BACK.value = data.M_MARK_BACK;
@@ -29,6 +29,8 @@ function modal(data2) {
     M_AXIS_SHORT.value = data.M_AXIS_SHORT;
     M_THICKNESS.value = data.M_THICKNESS;
     M_IMAGE.src = data.M_IMAGE;
+
+    data.M_TYPE =='일반의약품' ? radio1.checked = true : radio2.checked = true;
 }
 
 function remove() {

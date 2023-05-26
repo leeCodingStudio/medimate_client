@@ -123,6 +123,7 @@ font-weight: bolder;
 
 /* 내용 틀 */
 .container-qna {
+    position: relative;
     border: none;
     padding: 20px;
     width: 700px;
@@ -303,3 +304,33 @@ input {
     border: 1px solid #53d36b;
 }
 
+
+.pagination {
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+}
+
+.pagination ul{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li{
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 30%;
+    border: 1px solid #59606c;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+}
+
+.pagination li:hover, .pagination li.active{
+    background-color: #53d36b;
+    color: white;
+}

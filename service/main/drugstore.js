@@ -1,5 +1,6 @@
 import { config } from '../../config.js';
 import Pagination from '../../middleware/pagination.js';
+import * as TokenStorage from '../../token.js'
 
 export async function showAll(req, res) {
     const page = req.query.page || 1;
@@ -12,10 +13,12 @@ export async function showAll(req, res) {
     fetch(url)
         .then(response => response.json())
         .then(pharmList => {
+            const tokenCheck = TokenStorage.getToken() ? true : false;
             let pagination = Pagination(page, pharmList.count, 6);
             pagination.list = pharmList.rows;
             pagination.P_NAME = P_NAME;
             pagination.P_ADDRESS = P_ADDRESS;
+            pagination.tokenCheck = tokenCheck;
 
             res.render('../public/ejs/main/drugstore', pagination)
         });

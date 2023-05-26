@@ -3,7 +3,8 @@ import * as TokenStorage from '../../token.js'
 
 
 export async function show(req, res) {
-    res.render('../public/ejs/main/mypagePw',{flag: false,success:false});
+    const tokenCheck = TokenStorage.getToken() ? true : false;
+    res.render('../public/ejs/main/mypagePw',{flag: false,success:false, tokenCheck});
 }
 
 export async function changepw(req,res){
@@ -18,10 +19,11 @@ export async function changepw(req,res){
     })
     .then(response=>response.json())
     .then((data)=> {
+        const tokenCheck = TokenStorage.getToken() ? true : false;
         if(!data.message && data.success){
-            res.render('../public/ejs/main/mypagePw',{ success:true ,flag:false })
+            res.render('../public/ejs/main/mypagePw',{ success:true ,flag:false, tokenCheck })
         }else{
-            res.render('../public/ejs/main/mypagePw',{ flag:true,success:false })
+            res.render('../public/ejs/main/mypagePw',{ flag:true,success:false, tokenCheck })
         }
     })
     .catch(error => {});

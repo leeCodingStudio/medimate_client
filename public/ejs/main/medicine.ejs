@@ -25,21 +25,28 @@
         </nav>
         <div class="header-state">
             <ul>
-                <li class="header-login">로그인</li>
-                <li class="header-join">회원가입</li>
+                <% if(tokenCheck){ %>
+                    <li class="header-mypage">마이페이지</li>
+                    <li class="header-logout">로그아웃</li>
+                <%}else{%>
+                    <li class="header-login">로그인</li>
+                    <li class="header-join">회원가입</li>
+                <%}%>
             </ul>
         </div>
     </header>
 
-    <!-- <form action="/main/medicine/search" method="get" class="search"> -->
-    <div class="search_drug">
-        <select name="M_TYPE" id="M_TYPE">
-            <option value="일반의약품">일반 의약품</option>
-            <option value="전문의약품">전문 의약품</option>
-        </select>
-        <input type="text" name="M_NAME" placeholder="검색어를 입력하세요">
-        <button class="btn_detail1">검색</button>
-    </div>
+    <form action="/main/medicine" method="get" id="search"  class="search">
+        <input type="hidden" name="page" id="page">
+        <div class="search_drug">
+            <select name="M_TYPE" id="M_TYPE">
+                <option value="일반의약품" <%= M_TYPE === '일반의약품' ? 'selected' : '' %>>일반 의약품</option>
+                <option value="전문의약품" <%= M_TYPE === '전문의약품' ? 'selected' : '' %>>전문 의약품</option>
+            </select>
+            <input type="text" id="M_NAME" name="M_NAME" value="<%=M_NAME %>" placeholder="검색어를 입력하세요">
+            <button class="btn_detail1">검색</button>
+        </div>
+    </form>
 
 
     
@@ -58,12 +65,19 @@
     <div class="page-wrap">
         <div class="pagination">
             <ul>
-                <li class="active">1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>></li>
+                <% if (page > 1) { %>
+                    <li onclick="page('<%= page - 1 %>')"><</li>
+                <% } %>
+                <% for (let i = startPage; i <= endPage; i++) { %>
+                <% if (page==i) { %>
+                    <li class="active"><%= i %></li>
+                <% } else { %>
+                    <li onclick="page('<%= i %>')"><%= i %></li>
+                <% } %>
+                <% } %>
+                <% if (page < totalPages) { %>
+                    <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                <% } %>
             </ul>
         </div>
     </div>

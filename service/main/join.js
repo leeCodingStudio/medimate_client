@@ -7,7 +7,7 @@ const aut2 = `Bearer ${token}`
 
 export async function Show(req,res){
     res.render('../public/ejs/main/join',
-    {wrongpw: true, wrongid : true})
+    {wrongpw: true, wrongid : true, tokenCheck:false})
 }
 export async function Join(req,res){
     const { U_ID,U_PW ,U_NAME, U_EMAIL,
@@ -39,10 +39,10 @@ export async function Join(req,res){
     .then(response => response.json())
     .then(data=>{
         if(data.message){
-            res.render('../public/ejs/main/join',{wrongpw : true,wrongid:false})
+            res.render('../public/ejs/main/join',{wrongpw : true,wrongid:false,tokenCheck:false})
         }else{
             console.log(data)
-            res.render('../public/ejs/main/login',{okjoin: false,fail:true})
+            res.render('../public/ejs/main/login',{okjoin: false,fail:true,tokenCheck:false})
         }
     })
 }

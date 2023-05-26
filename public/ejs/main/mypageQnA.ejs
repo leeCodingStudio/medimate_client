@@ -23,7 +23,7 @@
             </div>
             <nav class="header-nav">
                 <ul>
-                    <li class="header-drug">약국</li>
+                    <li class="header-pharm">약국</li>
                     <li class="header-medicine">약</li>
                     <li class="header-calendar">캘린더</li>
                     <li class="header-announcement">공지사항</li>
@@ -31,8 +31,13 @@
             </nav>
             <div class="header-state">
                 <ul>
-                    <li class="header-login">로그인</li>
-                    <li class="header-join">회원가입</li>
+                    <% if(tokenCheck){ %>
+                        <li class="header-mypage">마이페이지</li>
+                        <li class="header-logout">로그아웃</li>
+                    <%}else{%>
+                        <li class="header-login">로그인</li>
+                        <li class="header-join">회원가입</li>
+                    <%}%>
                 </ul>
             </div>
         </header>
@@ -74,8 +79,14 @@
                     <div class="content2" onclick="modal3('<%= JSON.stringify(data) %>')">
                         <p class="list-qna" id="data"><%= data.Q_NUM %></p>
                         <p class="list-qna" id="data"><%= data.Q_TITLE.slice(0,3) %>..</p>
-                        <p class="list-qna" id="data"><%= data.createdAt.slice(5,10)%></p>
-                        <p class="list-qna" id="data"><%= data.Q_ANSWER %></p>
+                        <p class="list-qna" id="data"><%= data.createdAt.slice(0,10)%></p>
+                        <% if(!data.Q_ANSWER){ %>
+                            <p class="list-qna"><i class="fa-solid fa-xmark"></i>
+                            </p>
+                            <% }else{ %>
+                                <p class="list-qna"><i class="fa-solid fa-check"></i>
+                                </p>
+                                <%}%>
                     </div>
                     <% })%>
                 </div>
@@ -88,19 +99,24 @@
 
             </div>
 
-                <div class="list-qna-pgnum">
-                    <p class="pgnum1"> 1</p>
-                    <p> | </p>
-                    <p class="pgnum2">2</p>
-                    <p> | </p>
-                    <p class="pgnum3">3</p>
-                    <p> | </p>
-                    <p class="pgnum4">4</p>
-                    <p> | </p>
-                    <p class="pgnum5">5</p>
-                    <p> | </p>
-                    <p class="pgnum6">> </p>
-                </div>
+            <div class="pagination">
+                <ul>
+                    <% if (page > 1) { %>
+                        <li onclick="page('<%= page - 1 %>')"><</li>
+                    <% } %>
+                    
+                    <% for (let i = startPage; i <= endPage; i++) { %>
+                    <% if (page==i) { %>
+                        <li class="active"><%= i %></li>
+                    <% } else { %>
+                        <li onclick="page('<%= i %>')"><%= i %></li>
+                    <% } %>
+                    <% } %>
+                    <% if (page < totalPages) { %>
+                        <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                    <% } %>
+                </ul>
+            </div>
             </div>
         </div>
     </div>
@@ -191,6 +207,7 @@
         }
         </script>
 
+    <script src="https://kit.fontawesome.com/1bf31ed49f.js" crossorigin="anonymous"></script>
     <script src="/js/main/header.js"></script>
     <script src="/js/main/qnamodal.js"></script>
 
