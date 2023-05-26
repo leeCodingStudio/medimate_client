@@ -9,7 +9,7 @@ export async function showAll(req, res) {
     fetch(config.base + '/main/login')
         .then(response => response.json())
         .then(res => console.log(res))
-        .then(res.render('../public/ejs/main/login'));
+        .then(res.render('../public/ejs/main/login',{ fail:true}));
 }
 
 export async function login(req, res) {
@@ -26,11 +26,14 @@ export async function login(req, res) {
     })
         .then(response => response.json())
         .then(data => {
+            if (data.message){
+                res.render('../public/ejs/main/login',{ fail:false })
+            }else{
             console.log(data);
             TokenStorage.saveToken(data.token)
+            res.redirect('/main/index')
+            }
         })
-        .then(()=> res.redirect('/main/index'))
-        .catch(error => {
-            console.error(error);
-        });
+        // .then(()=> res.redirect('/main/index'))
 };
+

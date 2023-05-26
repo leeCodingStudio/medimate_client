@@ -1,11 +1,19 @@
 /* 폰트 */
-@font-face {
-        font-family: 'medimate';
-        src: url('./fonts/DNFBitBitOTF.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
 }
 
+*{
+    font-family: 'bitbit';
+}
+
+input {
+    width: auto;
+    height: 3rem;
+    font-size: large;
+    text-align: center;
+}
 /* 바디 */
 body {
     width: 100%;
@@ -125,6 +133,7 @@ input {
     padding: 20px;
     width: 700px;
     margin-top: 10rem;
+    margin-left: 5rem;
 }
 
 
