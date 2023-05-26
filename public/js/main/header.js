@@ -1,5 +1,5 @@
 const headerLogo = document.querySelector(".header-logo");
-const headerPharm = document.querySelector(".header-pharm");
+const headerDrug = document.querySelector(".header-drug");
 const headerMedicine = document.querySelector(".header-medicine");
 const headerCalendar = document.querySelector(".header-calendar");
 const headerAnnouncement = document.querySelector(".header-announcement");
@@ -7,17 +7,18 @@ const headerLogin = document.querySelector(".header-login");
 const headerJoin = document.querySelector(".header-join");
 const headerMypage = document.querySelector(".header-mypage");
 
+
 headerLogo.addEventListener(('click'), () => {
-    location.href="/main/index";
+    location.href="/main";
 });
-headerPharm.addEventListener(('click'), () => {
-    location.href="/main/drugstore";
+headerDrug.addEventListener(('click'), () => {
+    location.href="/main/drug";
 });
 headerMedicine.addEventListener(('click'), () => {
     location.href="/main/medicine";
 });
 headerCalendar.addEventListener(('click'), () => {
-    location.href="/main/calender";
+    location.href="/main/calendar";
 });
 headerAnnouncement.addEventListener(('click'), () => {
     location.href="/main/announcement";
