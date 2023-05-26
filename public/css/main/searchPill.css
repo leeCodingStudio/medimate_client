@@ -9,7 +9,6 @@
 
 body {
     margin: 0;
-    height: 1000px;
 }
 
 li {
@@ -45,6 +44,7 @@ header li {
     display: inline-block;
     cursor: pointer;
 }
+
 
 /* 로고  a태그 */
 .logo-a {
