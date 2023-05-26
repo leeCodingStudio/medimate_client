@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="findId.css">
+    <link rel="stylesheet" href="/css/main/findId.css">
     <title>mypagePw</title>
 </head>
 
@@ -36,20 +36,24 @@
         
         <div class="findId">
             <h2>아이디 찾기</h2>
-            <p class="findId_name">이름<input type="text"></p>
-            <p>이메일<input type="email"></p>
-            <div class="find_btn"><button onclick="">확인</button></div>
+            <form action="/main/find/id" method="post">
+                <p class="findId_name">이름<input type="text" name="U_NAME"></p>
+                <p>이메일<input type="email" name="U_EMAIL"></p>
+                <div class="find_btn"><button>확인</button></div>
+            </form>
         </div>
 
         <div class="findPw">
             <h2>비밀번호 찾기</h2>
-            <p class="findId_name">이름<input type="text"></p>
-            <p>아이디<input type="text"></p>
-            <p>이메일<input type="email"></p>
-            <div class="find_btn"><button onclick="">확인</button></div>
+            <form action="/main/find/pw" method="post">
+                <p class="findId_name">이름<input type="text" name="U_NAME"></p>
+                <p>아이디<input type="text" name="U_ID"></p>
+                <p>이메일<input type="email" name="U_EMAIL"></p>
+                <div class="find_btn"><button>확인</button></div>
+            </form>
         </div>
         
-        <script src="/header.js"></script>
+        <script src="/css/main/header.js"></script>
 </body>
 
 </html>

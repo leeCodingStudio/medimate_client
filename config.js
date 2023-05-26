@@ -12,5 +12,9 @@ function required(key, defaultvalue = undefined) {
 export const config = {
     base:required('BASE_URL'),
     client:required('CLIENT_URL'),
-    port:parseInt(required('PORT', 3000))
+    port:parseInt(required('PORT', 3000)),
+    senderSmtp:required('SENDERSMTP'),
+    senderPort:parseInt(required('SENDERPORT')),
+    senderEmail:required('SENDEREMAIL'),
+    senderPass:required('SENDERPASS')
 }
