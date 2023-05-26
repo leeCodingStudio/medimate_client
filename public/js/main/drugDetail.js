@@ -46,8 +46,8 @@ const P_HOLI_C = document.getElementById('modalPholic')
     infoBtn.forEach((v) => {
         v.addEventListener('click',() => {
             modalInfo.classList.add('active');
-            
-            
+            map.relayout();
+            map.setCenter(position)
         });
     });
 
@@ -65,15 +65,17 @@ const P_HOLI_C = document.getElementById('modalPholic')
 
     let map
     let markerPosition
-    let marker
     let mapContainer = document.getElementById('map')
     mapContainer.style.width = '30rem';
     mapContainer.style.height = '21rem'; 
     mapOption = { 
-        center: new kakao.maps.LatLng(123, 123),
+        center: new kakao.maps.LatLng(36, 123),
         level: 3
     };
     map = new kakao.maps.Map(mapContainer, mapOption);
+    let marker = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(0, 0)
+    });
     
 
 
@@ -102,16 +104,13 @@ function modal(data2) {
     P_HOLI_C.value = data.P_HOLI_C;
     const P_LATI = parseFloat(data.P_LATI);
     const P_LONGI = parseFloat(data.P_LONGI);
-    markerPosition  = new kakao.maps.LatLng(P_LONGI, P_LATI); 
-    marker = new kakao.maps.Marker({
-        position: markerPosition
-    });
-    
-    marker.setMap(map);
-    map.setCenter(new kakao.maps.LatLng(P_LONGI, P_LATI))
-    map.setLevel(3)
-    map.relayout();
 
+    position  = new kakao.maps.LatLng(P_LONGI, P_LATI); 
+    
+    marker.setPosition(position);
+    map.setCenter(position)
+    marker.setMap(map);
+    map.setLevel(3)
 
 };
 
