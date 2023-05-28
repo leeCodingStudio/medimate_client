@@ -33,7 +33,14 @@ export async function create(req, res) {
         body: JSON.stringify(data),
     })
         .then(response => response.json())
-        .then(() => res.redirect('/admin/drugstore'))
+        .then(datas =>{
+            if(!datas.message){
+                res.redirect('/admin/drugstore')
+            }else{
+                const message = datas.message
+                res.render('../public/ejs/admin/adminDrugstore',{ message })
+            }
+        })
         .catch(error => {
             console.error('Error:', error);
         });

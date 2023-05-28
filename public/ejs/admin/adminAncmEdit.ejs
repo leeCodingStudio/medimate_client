@@ -39,7 +39,7 @@
             <article class="content-header">
                 <div>
                     <div class="content-title">
-                        <span>제목 </span><input type="text" placeholder="제목을 입력하세요" name="A_TITLE" value="<%=announcement.A_TITLE%>">
+                        <span>제목 </span><input type="text" placeholder="제목을 입력하세요" name="A_TITLE" value="<%=announcement.A_TITLE%>" required>
                     </div>
                     <div class="content-writer">
                         <span>작성자 </span><input type="text" placeholder="작성자를 입력하세요" name="U_NAME" value="<%=announcement.U_NAME%>" readonly>
@@ -50,7 +50,6 @@
                     </div>
                 </div>
                 <div>
-                    <input type="file" name="A_IMAGE" >
                     <button type="submit" class="black-btn">수정</button>
                     <button type="button" class="red-btn" onclick="remove('<%= announcement.A_NUM %>')">삭제</button>
                 </div>
