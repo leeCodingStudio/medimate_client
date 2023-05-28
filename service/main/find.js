@@ -19,11 +19,15 @@ export async function findId(req, res){
     })
     .then(response => response.json())
     .then(datas => {
-        const U_ID = datas.U_ID
-        if(U_ID){
+
+        if(datas.U_ID){
+            const U_ID = datas.U_ID
             emailPost(U_EMAIL, `아이디는 ${U_ID} 입니다.`);
+            res.render('../public/ejs/main/findId', { tokenCheck:false });
+        }else{
+            const message = datas.message;
+            res.render('../public/ejs/main/findId', {  tokenCheck:false, message });
         }
-        res.render('../public/ejs/main/findId', { U_ID, tokenCheck:false });
     });
 }
 
@@ -41,11 +45,13 @@ export async function findPw(req, res){
     })
     .then(response => response.json())
     .then(datas => {
-        const U_ID = datas.U_ID
-        if(U_ID){
+        if(!datas.message){
             emailPost(U_EMAIL, `임시 비밀번호는 ${U_PW} 입니다.`);
+            res.render('../public/ejs/main/findId', { tokenCheck:false });
+        }else{
+            const message = datas.message;
+            res.render('../public/ejs/main/findId', { tokenCheck:false, message });
         }
-        res.render('../public/ejs/main/findId', { U_ID, tokenCheck:false });
     });
 
     

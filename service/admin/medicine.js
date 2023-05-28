@@ -39,8 +39,13 @@ export async function insertDrug(req, res){
         body: JSON.stringify(newDrug) // 약품 정보를 JSON 형식으로 변환
     })
     .then(response => response.json())
-    .then(insertedDrug => {
-        res.redirect('/admin/medicine'); 
+    .then(datas =>{
+        if(!datas.message){
+            res.redirect('/admin/medicine')
+        }else{
+            const message = datas.message
+            res.render('../public/ejs/admin/adminmedicine',{ message })
+        }
     })
 }
 
