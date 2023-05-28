@@ -5,15 +5,18 @@ import * as TokenStorage from '../../token.js'
 
 export async function show(req, res) {
     const tokenCheck = TokenStorage.getToken() ? true : false;
-    res.render('../public/ejs/main/mypageWithdrawal',{flag: false,success:false, tokenCheck});
+    const message = tokenCheck ? undefined : '로그인 필요';
+    res.render('../public/ejs/main/mypageWithdrawal',{flag: false,success:false, tokenCheck, message});
 }
 
 export async function Delete(req,res){
     fetch(config.base + '/main/mypage/withdrawal',
     {method: 'DELETE',headers: getHeaders()})
     .then(response => response.json())
-    .then(goodbyeHeaders())
-    .then(res.render('../public/ejs/main/index',{goodbye:false,false:true,tokenCheck:false}))
+    .then(() => {
+        goodbyeHeaders()
+        res.render('../public/ejs/main/index',{goodbye:false,false:true,tokenCheck:false,adminCheck:false})
+    })
 }
 
 

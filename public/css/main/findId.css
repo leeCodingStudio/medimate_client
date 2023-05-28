@@ -1,9 +1,9 @@
-/* 폰트 */
-@font-face {
-    font-family: 'medimate';
-    src: url('./fonts/DNFBitBitOTF.woff') format('woff');
-font-weight: 700;
-font-style: normal;
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+*{
+    font-family: 'bitbit';
 }
 
 /* 바디 */
@@ -17,14 +17,19 @@ li {
 }
 
 header {
+    width: 90%;
+    height: 80px;
+    border: 0;
+    box-shadow: 2px 3px 5px 0 rgb(196, 191, 191);
     border-radius: 30px;
-    width: 100%;
-    padding: 5px 100px;
-    box-sizing: border-box;
+    margin: 25px auto;
+    padding: 5px 30px;
     display: flex;
+    position: relative;
     justify-content: space-between;
-    box-shadow: 0 0 5px 0 rgb(155, 155, 155);
-    z-index: 100;
+    left: 0;
+    right: 0;
+    font-weight: 200;
 }
 
 
@@ -49,7 +54,6 @@ header li {
 /* 리스트 */
 .header-nav {
     font-size: 24px;
-    font-weight: bold;
 }
 
 .header-nav li {
@@ -61,13 +65,13 @@ header li {
 .header-state li {
     font-size: 18px;
     margin: 0 5px;
-    font-weight: bold;
 }
 
 
 input {
-    margin-left: 20px;
-    border: 1px solid #53d36b;
+    padding: 7px;
+    margin: 10px;
+    border-radius: 7px;
 }
 
 
@@ -77,31 +81,37 @@ input {
 
 /* container */
 .container {
-    width: 30%;
-    margin: 3rem auto 0;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);    /* 박스를 가운데에 맞춰주기*/
+    width: 450px;
+    height: 50rem;
+    margin: auto;
+
+    /* 로그인 내부 요소들?을 로그인 박스 안에서 가운데에 정렬하기 */
     display: flex;
     justify-content: center;
-    font-family: 'medimate';
-    padding: 50px;
-    border: 1px solid lightgray;
-    border-radius: 10%;
+    align-items: center;
     flex-direction: column;
+
+    box-shadow: 2px 3px 5px 0 rgb(196, 191, 191);
+    border-radius: 30px;
 }
-.container p, .container input{
-    
-}
+
 /* 작은 container들 */
 .findId {
-    margin: 0 auto;
+    margin: 3rem auto;
 }
 
 .findPw {
-    margin: 0 auto;
+    margin: 3rem auto;
 }
 
 /* id, pw찾기 text */
 .findId h2, .findPw h2{
     text-align: center;
+    margin: 0 auto;
     width: 200px;
     color: #53d36b;
     font: bold;
@@ -120,6 +130,7 @@ input {
 /* 버튼 */
 
 button {
+    width: 35%;
     justify-content: center;
     cursor: pointer;
     color: white;

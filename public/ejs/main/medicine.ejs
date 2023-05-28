@@ -48,8 +48,7 @@
         </div>
     </form>
 
-
-    
+    <div class="search-container">
     <% list.forEach(data => { %>
         <div class="abc">
             <div id="drug-info1" class="drug-info" onclick="modal2('<%= JSON.stringify(data)%>')">
@@ -59,28 +58,29 @@
                 <p><%= data.M_NUM %></p>
             </div>
         </div>
-    </div>
     <% }) %>
-
-    <div class="page-wrap">
-        <div class="pagination">
-            <ul>
-                <% if (page > 1) { %>
-                    <li onclick="page('<%= page - 1 %>')"><</li>
-                <% } %>
-                <% for (let i = startPage; i <= endPage; i++) { %>
-                <% if (page==i) { %>
-                    <li class="active"><%= i %></li>
-                <% } else { %>
-                    <li onclick="page('<%= i %>')"><%= i %></li>
-                <% } %>
-                <% } %>
-                <% if (page < totalPages) { %>
-                    <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
-                <% } %>
-            </ul>
-        </div>
+    <div class="pagination">
+        <ul>
+            <% if (page > 1) { %>
+                <li onclick="page('<%= page - 1 %>')"><</li>
+            <% } %>
+            <% for (let i = startPage; i <= endPage; i++) { %>
+            <% if (page==i) { %>
+                <li class="active"><%= i %></li>
+            <% } else { %>
+                <li onclick="page('<%= i %>')"><%= i %></li>
+            <% } %>
+            <% } %>
+            <% if (page < totalPages) { %>
+                <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+            <% } %>
+        </ul>
     </div>
+</div>
+
+
+
+
 <!-- // 모달창 html 기본 display:none -->
 <div id="modal-info" class="modal">
     <div class="modal_container">
@@ -89,7 +89,7 @@
                 <img src="name=M_IMAGE" id="modalMimage" alt="pharm">
             </div>
         </div>
-        <div class="modal_body2">
+        <div class="search_distribution">
             <p>일련번호 : </p>
             <p>제품명 : </p>
             <p>업소명 : </p>
@@ -104,7 +104,7 @@
             <p>단축 : </p>
             <p>두께 : </p>
         </div>
-        <div class="modal_body3">
+        <div class="search_distribution_result">
             <p><input type="text" id="modalMnum" name="M_NUM"></p>
             <p><input type="text" id="modalMname" name="M_NAME"></p>
             <p><input type="text" id="modalMcorp" name="M_CORP"></p>

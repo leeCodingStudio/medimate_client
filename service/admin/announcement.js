@@ -14,10 +14,15 @@ export async function showAll(req, res) {
     fetch(url, {headers: getHeaders()})
         .then(response => response.json())
         .then(AnnouncementList => {
+            if(AnnouncementList.message){
+                const message = AnnouncementList.message
+                res.render('../public/ejs/admin/adminAnnouncement',{ message })
+            }else{
             let pagination = Pagination(page, AnnouncementList.count, 10);
             pagination.list = AnnouncementList.rows;
             pagination.A_TITLE = A_TITLE;
             res.render('../public/ejs/admin/adminAnnouncement', pagination);
+            }
         });
 }
 
@@ -29,7 +34,12 @@ export async function showOne(req, res) {
     fetch(url, {headers: getHeaders()})
         .then(response => response.json())
         .then(announcement => {
+            if(announcement.message){
+                const message = announcement.message
+                res.render('../public/ejs/admin/adminAncmEdit',{ message })
+            }else{
             res.render('../public/ejs/admin/adminAncmEdit', { announcement});
+            }
         });
     }
 

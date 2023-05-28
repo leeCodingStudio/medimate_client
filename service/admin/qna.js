@@ -13,11 +13,15 @@ export async function showAll(req, res) {
     fetch(url, {headers: getHeaders()})
         .then(response => response.json())
         .then(qnaList => {
-            console.log(qnaList);
+            if(qnaList.message){
+            const message = qnaList.message
+            res.render('../public/ejs/admin/adminQnA',{ message })
+        }else{
             let pagination = Pagination(page, qnaList.count, 10);
             pagination.qnaList = qnaList.rows;
             pagination.Q_TITLE = Q_TITLE;
             res.render('../public/ejs/admin/adminQnA', pagination);
+        }
         });
 }
 

@@ -164,6 +164,15 @@ header li {
     flex-direction: row;
 
 }
+
+.search-container {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    box-sizing: content-box;
+    align-items: center;
+    
+}
 .drug-info {
     padding: 0.5rem;
     border: 1px solid #53d36b;
@@ -181,6 +190,7 @@ header li {
     width: 10rem;
     text-align: center;
     margin-left: 1.4rem;
+    font-size: 1rem;
 }
 
 .abc img {
@@ -310,7 +320,7 @@ header li {
 
 .pagination {
     position: relative;
-    top: 51rem;
+    top: 4rem;
     font-size: 14px;
 }
 

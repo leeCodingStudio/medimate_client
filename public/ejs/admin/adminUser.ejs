@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="/css/admin/admin.css">
     <link rel="stylesheet" href="/css/admin/adminUser.css">
     <title>회원관리</title>
+    <% if(typeof message !== 'undefined'){%>
+    <script>
+        alert("<%= message %>");
+        history.back();
+    </script>
+    <% }else{ %>
 </head>
 <body>
     <header>
@@ -62,22 +68,20 @@
             <% })} %>
             <div class="pagination">
                 <ul>
-                    <div class="pagination">
-                        <ul>
-                            <% if (page > 1) { %>
-                                <li onclick="page('<%= page - 1 %>')"><</li>
-                            <% } %>
-                            
-                            <% for (let i = startPage; i <= endPage; i++) { %>
-                            <% if (page==i) { %>
-                                <li class="active"><%= i %></li>
-                            <% } else { %>
-                                <li onclick="page('<%= i %>')"><%= i %></li>
-                            <% } %>
-                            <% } %>
-                            <% if (page < totalPages) { %>
-                                <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
-                            <% } %>
+                    <% if (page > 1) { %>
+                        <li onclick="page('<%= page - 1 %>')"><</li>
+                    <% } %>
+                    
+                    <% for (let i = startPage; i <= endPage; i++) { %>
+                    <% if (page==i) { %>
+                        <li class="active"><%= i %></li>
+                    <% } else { %>
+                        <li onclick="page('<%= i %>')"><%= i %></li>
+                    <% } %>
+                    <% } %>
+                    <% if (page < totalPages) { %>
+                        <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                    <% } %>
                 </ul>
             </div>
         </article>
@@ -125,3 +129,4 @@
     <script src="/js/admin/adminUser.js"></script>
 </body>
 </html>
+<% } %>

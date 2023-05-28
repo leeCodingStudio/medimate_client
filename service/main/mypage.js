@@ -8,7 +8,8 @@ export async function show(req, res) {
     .then(userlist => {
         const tokenCheck = TokenStorage.getToken() ? true : false;
         if(userlist.message){
-            res.render('../public/ejs/main/index',{userlist,fail:false,goodbye:true,tokenCheck})
+            const message = userlist.message;
+            res.render('../public/ejs/main/mypageInfo',{tokenCheck, message})
         }else{
             res.render('../public/ejs/main/mypageInfo',{userlist,fail:true,goodbye:true,admin:true,tokenCheck})
         }

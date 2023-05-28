@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main/mypageQnA.css">
     <title>mypageQnA</title>
+    <% if(typeof message !== 'undefined'){%>
+        <script>
+            alert("<%= message %>");
+            history.back();
+        </script>
+        <% }else{ %>
 </head>
 
 <body>
-    <% if(flag){ %>
-        <script>alert('비밀번호 틀렸습니다')</script>
-        <% }else if(success) { %>
-            <script>alert('비밀번호 변경완료')</script>
-            <% }%>
 
     <div>
         <header>
@@ -215,3 +216,4 @@
 </body>
 
 </html>
+<% } %>

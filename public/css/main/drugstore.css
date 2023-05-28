@@ -149,15 +149,15 @@ header li {
 
 .search_container{
     position: flex;
-    width: 100rem;
+    width: 80rem;
     margin: 0 auto;
 }
 
 
 
 .classification{    
-    font-size: 2rem;
-    width: 100rem;
+    font-size: 1rem;
+    width: 80rem;
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -183,7 +183,7 @@ header li {
 }
 
 .drug-info {
-    font-size: 1.5em;
+    font-size: 1em;
     display: flex;
     justify-content: space-between;
 }

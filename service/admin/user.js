@@ -13,7 +13,8 @@ export async function showAll(req, res){
     .then(response => response.json())
     .then(test=> {
         if(test.message){
-            res.render('../public/ejs/main/index',{test,fail:false,goodbye:true,admin:false})
+            const message = test.message
+            res.render('../public/ejs/admin/adminUser',{ message })
         }else{
             let pagination = Pagination(page, test.count, 10);
             pagination.list = test.rows;
