@@ -38,6 +38,14 @@ header li {
     cursor: pointer;
 }
 
+p{
+    font-size: large;
+    box-sizing:content-box;
+    width: 5rem;
+    margin: 10px 0;
+    text-align: end;
+}
+
 /* 로고 */
 .header-logo h1 {
     cursor: pointer;
@@ -234,7 +242,6 @@ header li {
 }
 
 .modal_body1, .modal_body2, .modal_body3, .modal_body4{
-    width: 200px;
     height:300px ;
     margin: 0;
 }
@@ -278,9 +285,8 @@ header li {
 
 .pagination {
     font-size: 14px;
-    position: absolute;
+    position: relative;
     left: 50%;
-    bottom: 0;
     transform: translate(-50%, -50%);
 }
 
@@ -309,4 +315,22 @@ header li {
 .pagination li:hover, .pagination li.active{
     background-color: #333f50;
     color: white;
+}
+
+
+input {
+    border: none;
+}
+
+.search_distribution_result {
+    position: flex;
+    width: 100%;
+}
+
+.search_distribution{
+    position: flex;
+    width: 100%;
+    text-align: end;
+    align-items: end;
+    align-content: end;
 }

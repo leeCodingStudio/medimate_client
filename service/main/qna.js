@@ -12,18 +12,19 @@ export async function show(req, res) {
     fetch(url, {headers: getHeaders()})
     .then(response => response.json())
     .then(qnaList => {
-        // console.log(getHeaders());
-        // res.render('../public/ejs/main/mypageQnA', 
-        // {qnaList ,flag: false,success:false });
-        console.log(qnaList);
 
-        let pagination = Pagination(page, qnaList.count, 6);
+        if(qnaList.message){
+            const message = qnaList.message;
+            res.render('../public/ejs/main/mypageQnA',{message})
+        }else{
+            let pagination = Pagination(page, qnaList.count, 6);
             pagination.qnaList = qnaList.rows;
             pagination.flag = false;
             pagination.success = false;
             pagination.tokenCheck = TokenStorage.getToken() ? true : false;
 
             res.render('../public/ejs/main/mypageQnA', pagination)
+        }
     });
 }
 

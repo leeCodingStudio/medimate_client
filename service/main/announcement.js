@@ -1,4 +1,5 @@
 import { response } from 'express';
+import Pagination from '../../middleware/pagination.js';
 import { config } from '../../config.js';
 import * as TokenStorage from '../../token.js'
 
@@ -14,7 +15,12 @@ export async function showAll(req, res){
     .then(response => response.json())
     .then(datas => {
         const tokenCheck = TokenStorage.getToken() ? true : false;
-        res.render('../public/ejs/main/announcement', { datas, tokenCheck });
+        let pagination = Pagination(page, datas.count, 10);
+        pagination.datas = datas.rows;
+        pagination.tokenCheck = tokenCheck;
+        pagination.A_TITLE = A_TITLE;
+
+        res.render('../public/ejs/main/announcement', pagination);
     });
 }
 

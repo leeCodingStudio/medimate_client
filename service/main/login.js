@@ -29,7 +29,7 @@ export async function login(req, res) {
         .then(data => {
             if (data.message){
                 res.render('../public/ejs/main/login',
-                { fail:false,okjoin:true })
+                { fail:false,okjoin:true, tokenCheck:false })
             }else{
             console.log(data);
             TokenStorage.saveToken(data.token)

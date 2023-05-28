@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main/mypageWithdrawal.css">
     <title>mypageWithdrawal</title>
+    <% if(typeof message !== 'undefined'){%>
+        <script>
+            alert("<%= message %>");
+            history.back();
+        </script>
+        <% }else{ %>
 </head>
 
 <body>
@@ -84,8 +90,9 @@
             location.href = "/main/mypage/withdrawal";    
         }
         </script>
-        <script src="/header.js"></script>
+        <script src="/js/main/header.js"></script>
 
 </body>
 
 </html>
+<% } %>

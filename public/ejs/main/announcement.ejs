@@ -41,7 +41,11 @@
     <div class="container">
 
         <div class="annc-search">
-            <input type="text" name="A_TITLE" placeholder="이름검색"><button onclick="">검색하기</button>
+            <form action="/main/announcement" method="get" class="search" id="search">
+                <input type="hidden" name="page" id="page">
+                <input type="text" name="A_TITLE" placeholder="이름검색" value="<%= A_TITLE %>">
+                <button type="submit">검색하기</button>
+            </form>
         </div>
 
         <div class="annc-content">
@@ -50,29 +54,33 @@
                 <p class="list-qna-title">제목</p>
                 <p class="list-qna-date">일자</p>
             </div>
-            <% datas.rows.forEach(data=> {%>
+            <% datas.forEach(data=> {%>
                 <div class="content2" onclick="noticeD('<%= data.A_NUM %>')"> 
                     <p class="list-qna-num" >
                         <%= data.A_NUM %></p>
                     <p class="list-qna-title">
                         <%= data.A_TITLE %></p>
                     <p class="list-qna-date">
-                        <%= data.A_DATE.slice(5,10) %></p>
+                        <%= data.A_DATE.slice(0,10) %></p>
                 </div>
-                <% }) %>
+            <% }) %>
         </div>
-        <div class="annc-pgnum">
-            <p class="pgnum1"> 1</p>
-            <p> | </p>
-            <p class="pgnum2">2</p>
-            <p> | </p>
-            <p class="pgnum3">3</p>
-            <p> | </p>
-            <p class="pgnum4">4</p>
-            <p> | </p>
-            <p class="pgnum5">5</p>
-            <p> | </p>
-            <p class="pgnum6">> </p>
+        <div class="pagination">
+            <ul>
+                <% if (page > 1) { %>
+                    <li onclick="page('<%= page - 1 %>')"><</li>
+                <% } %>
+                <% for (let i = startPage; i <= endPage; i++) { %>
+                <% if (page==i) { %>
+                    <li class="active"><%= i %></li>
+                <% } else { %>
+                    <li onclick="page('<%= i %>')"><%= i %></li>
+                <% } %>
+                <% } %>
+                <% if (page < totalPages) { %>
+                    <li onclick="page('<%= parseInt(page) + 1 %>')">></li>
+                <% } %>
+            </ul>
         </div>
     </div>
     <script>
@@ -85,7 +93,7 @@
     </script>
     <script src="/js/main/header.js"></script>
     <script src="/js/main/announcement.js"></script>
-    <script src="/main/announcement-content"></script>
+    <script src="/js/main/announcement-content"></script>
 </body>
 
 </html>

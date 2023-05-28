@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="/css/main/mypageInfo.css">
     <link rel="stylesheet" href="/css/main/mypageInfo.js">
     <title>mypageInfo</title>
+    <% if(typeof message !== 'undefined'){%>
+        <script>
+            alert("<%= message %>");
+            history.back();
+        </script>
+        <% }else{ %>
 </head>
 
 <body>
@@ -122,3 +128,4 @@
 </body>
 
 </html>
+<% } %>

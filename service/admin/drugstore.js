@@ -11,10 +11,15 @@ export async function showAll(req, res) {
     fetch(url)
         .then(response => response.json())
         .then(drugList => {
+            if(drugList.message){
+                const message = drugList.message
+                res.render('../public/ejs/admin/adminDrugstore',{ message })
+            }else{
             let pagination = Pagination(page, drugList.count, 10);
             pagination.list = drugList.rows;
             pagination.P_NAME = P_NAME;
             res.render('../public/ejs/admin/adminDrugstore', pagination)
+            }
         });
 }
 

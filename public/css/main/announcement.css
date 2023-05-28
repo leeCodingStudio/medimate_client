@@ -11,6 +11,10 @@ p{
     margin: 0;
 }
 
+li{
+    list-style: none;
+}
+
 
 /* 헤더 */
 header {
@@ -151,4 +155,71 @@ button {
 .content-title, .content2 {
     cursor: pointer;
     justify-content: space-between;
+}
+
+
+/* 페이지네이션 */
+
+.annc-pgnum {
+    font-size: 14px;
+    padding: 2rem;
+}
+
+.paging ul {
+    justify-content: center;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.pgnum1, .pgnum2, .pgnum3, .pgnum4, .pgnum5, .pgnum6 {
+    list-style: none;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 30%;
+    border: 1px solid #59606c;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+}
+
+.pgnum1:hover, .pgnum2:hover, .pgnum3:hover, .pgnum4:hover, .pgnum5:hover, .pgnum6:hover,
+.pgnum1:active, .pgnum2:active, .pgnum3:active, .pgnum4:active, .pgnum5:active, .pgnum6:active {
+    background-color: #333f50;
+    color: white;
+}
+
+/* 페이징 */
+.pagination {
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+}
+
+.pagination ul{
+    justify-content: center;
+    display: flex;
+}
+
+.pagination li{
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 30%;
+    border: 1px solid #59606c;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+}
+
+.pagination li:hover, .pagination li.active{
+    background-color: #333f50;
+    color: white;
 }
