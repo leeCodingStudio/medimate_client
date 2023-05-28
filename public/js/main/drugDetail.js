@@ -98,9 +98,10 @@ function modal(data2) {
 
 
 // 페이지네이션 + 검색
-const pageIpt = document.getElementById('page');
-const search = document.getElementById('search');
+
 function page(page){
+    const pageIpt = document.getElementById('page');
+    const search = document.getElementById('search');
     pageIpt.value = page;
     search.submit();
 }

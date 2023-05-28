@@ -36,9 +36,7 @@ export async function modify(req, res){
 
     fetch(config.base+'/admin/user/'+U_NUM, {
         method: "PUT",
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: getHeaders(),
         body: JSON.stringify({ U_NUM, U_ID, U_NAME, U_EMAIL, U_HP })
     }).then(() => res.redirect('/admin/user'))
 }
@@ -47,7 +45,8 @@ export async function drop(req, res){
     const U_NUM = req.params.id;
 
     fetch(config.base+'/admin/user/'+U_NUM, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: getHeaders()
     }).then(() => res.redirect('/admin/user'))
 }
 

@@ -9,7 +9,7 @@ export async function show(req, res) {
         const tokenCheck = TokenStorage.getToken() ? true : false;
         if(userlist.message){
             const message = userlist.message;
-            res.render('../public/ejs/main/mypageInfo',{tokenCheck, message})
+            res.render('../public/ejs/main/scamypageInfo',{tokenCheck, message})
         }else{
             res.render('../public/ejs/main/mypageInfo',{userlist,fail:true,goodbye:true,admin:true,tokenCheck})
         }
@@ -18,7 +18,10 @@ export async function show(req, res) {
 
 
 export async function changeInfo(req, res) {
-    const { U_NUM, U_EMAIL, U_ZIP_CODE, U_ADDRESS1, U_ADDRESS2, U_HP  } = req.body
+    const { U_NUM, U_EMAIL, U_HP  } = req.body
+    const U_ZIP_CODE = req.body.U_ZIP_CODE || ''
+    const U_ADDRESS1 = req.body.U_ADDRESS1 || ''
+    const U_ADDRESS2 = req.body.U_ADDRESS2 || ''
     fetch(`${config.base}/main/mypage/info`, {
         method: 'PUT',
         headers:getHeaders(),

@@ -14,7 +14,7 @@ export async function showAll(req, res) {
         .then(response => response.json())
         .then(pharmList => {
             const tokenCheck = TokenStorage.getToken() ? true : false;
-            let pagination = Pagination(page, pharmList.count, 6);
+            let pagination = Pagination(page, pharmList.count, 8);
             pagination.list = pharmList.rows;
             pagination.P_NAME = P_NAME;
             pagination.P_ADDRESS = P_ADDRESS;
