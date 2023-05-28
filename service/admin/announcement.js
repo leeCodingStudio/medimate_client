@@ -80,6 +80,7 @@ export async function drop(req, res){
     const  A_NUM  = req.params.id; // 삭제할 약품의 M_NUM 파라미터에서 가져오기
     console.log('serD',A_NUM);
     fetch(config.base + '/admin/announcement/' + A_NUM, {
+        headers: getHeaders(),
         method: 'DELETE'
     })
     .then(() => res.redirect('/admin/announcement') // 약품 삭제가 성공한 경우, 약품 목록 페이지로 리다이렉트
