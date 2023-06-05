@@ -3,7 +3,7 @@ import { emailPost } from '../../middleware/email.js';
 import * as TokenStorage from '../../token.js'
 
 export async function showAll(req, res){
-    res.render('../public/ejs/main/findId', {U_ID:false, tokenCheck:false})
+    res.render('../public/ejs/main/findId', {U_ID:false, tokenCheck:false,mailId:false, mailPw:false })
 }
 
 export async function findId(req, res){
@@ -23,10 +23,10 @@ export async function findId(req, res){
         if(datas.U_ID){
             const U_ID = datas.U_ID
             emailPost(U_EMAIL, `아이디는 ${U_ID} 입니다.`);
-            res.render('../public/ejs/main/findId', { tokenCheck:false });
+            res.render('../public/ejs/main/findId', { tokenCheck:false, mailId:true, mailPw:false });
         }else{
             const message = datas.message;
-            res.render('../public/ejs/main/findId', {  tokenCheck:false, message });
+            res.render('../public/ejs/main/findId', {  tokenCheck:false, message, mailId:false, mailPw:false  });
         }
     });
 }
@@ -47,10 +47,10 @@ export async function findPw(req, res){
     .then(datas => {
         if(!datas.message){
             emailPost(U_EMAIL, `임시 비밀번호는 ${U_PW} 입니다.`);
-            res.render('../public/ejs/main/findId', { tokenCheck:false });
+            res.render('../public/ejs/main/findId', { tokenCheck:false,mailId:false, mailPw:true });
         }else{
             const message = datas.message;
-            res.render('../public/ejs/main/findId', { tokenCheck:false, message });
+            res.render('../public/ejs/main/findId', { tokenCheck:false, message,mailId:false, mailPw:false });
         }
     });
 
