@@ -11,7 +11,17 @@
             alert("<%= message %>");
             history.back();
         </script>
-        <% }else{ %>
+        <% }else { %>
+    <% if(mailId){%>
+        <script>
+            alert('해당 이메일로 아이디를 전송했습니다.')
+        </script>
+        <% } %>
+    <% if(mailPw){%>
+        <script>
+            alert('해당 이메일로 임시비밀번호를 전송했습니다.')
+        </script>
+        <% } %>
 </head>
 
 <body>
